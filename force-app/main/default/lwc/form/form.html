@@ -1,0 +1,16 @@
+<template>
+    <lightning-card  variant="Narrow"  title="My Quote Form" icon-name="standard:account">
+        <div class="slds-m-around_medium form-wrapper">
+            <template for:each={pages} for:item="page">
+                <div key={page.id} if:true={page.isActive}>
+                    <c-page page={page}></c-page>
+                </div>
+            </template>
+            <c-page-navigation 
+                prev-label={prevLabel} 
+                next-label={nextLabel}
+                onnext={handleNextInParent}
+                onprev={handlePrevInParent}></c-page-navigation>
+        </div>
+    </lightning-card>
+</template>

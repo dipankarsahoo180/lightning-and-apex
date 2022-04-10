@@ -1,0 +1,19 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Grand Parent" icon-name="custom:custom3">
+        <!-- <p class="slds-p-horizontal_large">Card Body of grand parent (custom component)</p> -->
+        <lightning-input class="input-name slds-p-horizontal_large" 
+                        type="text" variant="standard slds" name="name" 
+                        label="Enter your name" placeholder="type here..." value={name}>
+        </lightning-input> <br/>
+        <lightning-button class="slds-p-horizontal_large" variant="success" label="Click Me" title="titleName" onclick={handleButtonClick}></lightning-button><br/>
+        <template if:true={name}>
+            <p class="slds-p-horizontal_large">Your name is {name}</p>
+        </template>
+        <template if:false={name}>
+            <p class="slds-p-horizontal_large">Click the button to see your name here</p>
+        </template>
+        
+        <p class="slds-p-horizontal_large">The name from Child in upper case is {childvalue}</p>
+        <c-parent-component></c-parent-component>
+    </lightning-card>
+</template>

@@ -1,0 +1,16 @@
+<template>
+  <div class="slds-box slds-theme_default">
+    <template for:each={data} for:item="item" >
+        <div key={item.Id}  class="wrapper">
+
+            <p class="question"><b>Question-{item.Id}:</b> {item.qLabel}</p>
+
+            <p class="answer" if:true={item.showAnswer}><b>Answer-:</b> {item.aLabel}</p>
+
+            <lightning-button variant="brand" label="Show Answer" 
+              onclick={toggleAnswer} data-q-id={item.Id} class="show-btn"></lightning-button>
+
+        </div>
+    </template>
+  </div>
+</template>

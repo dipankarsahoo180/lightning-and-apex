@@ -1,0 +1,18 @@
+.THIS.first-h1{
+    color:white;
+    text-align:center;
+    background-color: blue;
+    font-size:30px;
+}
+.THIS .lwc-comp-event{
+	padding:20px;
+    border: 5px solid blue;
+    border-radius: 10px;
+    background: yellow;
+}
+
+.THIS.component-card{
+    padding:20px;
+    background:pink;
+    border-radius:1px;
+}

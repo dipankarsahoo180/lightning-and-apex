@@ -1,0 +1,9 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Parent" icon-name="custom:custom1">
+        <!-- <p class="slds-p-horizontal_large">Card Body Parent (custom component)</p><br/> -->
+        <p class="slds-p-horizontal_large">The name from grand parent in upper case is {parentName}</p>
+        <p class="slds-p-horizontal_large">The name from Child in upper case is {childvalue}</p>
+        
+        <c-child-component oncustomeventchild={handleChildCustomEvent}></c-child-component>
+    </lightning-card>
+</template>

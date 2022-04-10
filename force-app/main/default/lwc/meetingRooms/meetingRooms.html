@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : Dipankar Sahoo
+  @group             : 
+  @last modified on  : 06-19-2021
+  @last modified by  : Dipankar Sahoo
+  Modifications Log 
+  Ver   Date         Author           Modification
+  1.0   06-19-2021   Dipankar Sahoo   Initial Version
+-->
+<template>
+    <lightning-card title="Meeting Rooms">
+        <ul>
+            <template for:each={meetingRoomsInfo} for:item="room">
+                <li key={room.roomName} style="padding: 10px">
+                    <c-meeting-room meeting-room-info={room}></c-meeting-room>
+                </li>
+            </template>
+            <c-meeting-room style="padding: 10px"></c-meeting-room>
+        </ul>
+    </lightning-card>
+</template>

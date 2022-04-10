@@ -1,0 +1,18 @@
+<template>
+	<div class="css-div-only" lwc:dom="manual"></div>
+	<lightning-card title="CSS Without Shadow DOM">
+		<div class="slds-var-m-around_medium">
+			<lightning-button label="Shadow Dom not applied" title="testing" class="normal-btn" variant="brand"
+				onclick={clickhandler}></lightning-button>
+		</div>
+	</lightning-card>
+
+	<lightning-card title="CSS across Shadow DOM">
+		<div class="slds-var-m-around_medium">
+			<lightning-button label="Shadow Dom applied" title="testing" class="shadow-btn" onclick={clickhandler}>
+			</lightning-button>
+		</div>
+	</lightning-card>
+
+
+</template>

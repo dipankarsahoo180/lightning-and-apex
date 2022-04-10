@@ -1,0 +1,27 @@
+<!-- <lightning-map map-markers={mapMarkers}> </lightning-map> -->
+<template>
+    <template if:true={mapLocation}>
+
+        <lightning-quick-action-panel header={mapheader}>
+
+            <lightning-map map-markers={mapLocation}> </lightning-map>
+
+            <div slot="footer">
+                <lightning-button
+                    variant="neutral"
+                    label="Cancel"
+                    onclick={closeAction}
+                ></lightning-button>
+                <lightning-button
+                    variant="brand"
+                    label="Save"
+                    class="slds-m-left_x-small"
+                    onclick={closeAction}
+                ></lightning-button>
+
+            </div>
+
+        </lightning-quick-action-panel>
+        
+     </template>
+</template>
