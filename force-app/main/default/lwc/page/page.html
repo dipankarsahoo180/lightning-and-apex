@@ -1,3 +1,7 @@
 <template>
-    {page.label}
+   <template for:each={page.elements} for:item="element">
+      <div key={element.id}>
+         <c-page-element element={element}></c-page-element>
+      </div>
+   </template>
 </template>

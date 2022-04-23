@@ -1,0 +1,13 @@
+<template>
+    <template if:true={isText}>
+        <lightning-input type="text" label={element.label} required={element.required}></lightning-input>
+    </template>
+
+    <template if:true={isSelect}>
+        <lightning-combobox
+            name="progress"
+            label={element.label}
+            options={element.options}
+            placeholder="Select Progress"></lightning-combobox>
+    </template>
+</template>

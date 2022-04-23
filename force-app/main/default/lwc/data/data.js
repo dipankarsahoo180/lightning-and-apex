@@ -15,10 +15,10 @@ const formSchema = {
                     readOnly: false,
                     className: "shortText",
                     width: 12,
-                    helptext: "",
+                    helptext: "Enter your Company Name",
                     placeholder: "",
                     maxlength: 30,
-                    pattern: "",
+                    pattern: false,
                     masking: "",
                     minlength: "",
                     changeHandler: "SearchGroupByName",
@@ -26,7 +26,7 @@ const formSchema = {
                         Search: "group_name"
                     },
                     icon: "",
-                    value: "",
+                    value: "Ford Motors",
                 },
                 {
                     type: "text",
@@ -69,7 +69,7 @@ const formSchema = {
                     readOnly: false,
                     className: "shortText",
                     width: 12,
-                    helptext: "",
+                    helptext: "Please select your state.",
                     placeholder: "",
                     maxlength: 30,
                     pattern: "",
@@ -77,8 +77,11 @@ const formSchema = {
                     minlength: "",
                     icon: "",
                     value: "",
-                    options: [],
-                    optionsNode: "state_options"
+                    options: [
+                                {label: 'Rajasthan', value: 'Rajasthan'},
+                                {label: 'Delhi', value: 'Delhi'},
+                                {label: 'Maharashtra', value: 'Maharashtra'}
+                            ]
                 },
                 {
                     type: "select",
@@ -96,7 +99,11 @@ const formSchema = {
                     minlength: "",
                     icon: "",
                     value: "",
-                    options: []
+                    options: [
+                                {label: 'Jaipur', value: 'Jaipur'},
+                                {label: 'Delhi', value: 'Delhi'},
+                                {label: 'Mumbai', value: 'Mumbai'}
+                            ]
                 },
                 {
                     type: "select",
@@ -114,6 +121,10 @@ const formSchema = {
                     minlength: "",
                     icon: "",
                     value: "",
+                    options:[
+                                {label: 'Wisconsin', value: 'Wisconsin'},
+                                {label: 'Illinois', value: 'Illinois'}
+                            ]
                 }
             ],
             navButtons: {
