@@ -1,0 +1,7 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes" access='global'>
+	<aura:attribute name="data" type="Object"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
+    <aura:if isTrue="{!v.data}">
+        <c:mutualNDAPracticeEnglish prefill="{!v.data}"></c:mutualNDAPracticeEnglish>
+    </aura:if>
+</aura:component>
