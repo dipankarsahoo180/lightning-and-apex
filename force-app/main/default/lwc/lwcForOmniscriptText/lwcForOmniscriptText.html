@@ -1,0 +1,9 @@
+<template>
+    <div style="display: flex;	flex-direction: row;flex-wrap: wrap;justify-content: space-between;align-items: center;align-content: space-around;">
+        <template for:each={buttonlist} for:item="Button">
+            <div key={Button.Id}>
+                <lightning-button variant="brand" label={Button.Name} onclick={handleClick}></lightning-button>
+            </div>
+        </template>
+    </div>
+</template>
