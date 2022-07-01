@@ -1,0 +1,24 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <div class="slds-modal__container">
+        <header class="slds-modal__header">
+            <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Confirmation</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <p>Successfully Created!!</p>
+        </div>
+        <footer class="slds-modal__footer" onclick={footerHandler}>
+            <!-- Below onclick creates one event with bubbling and bcause of that 
+                it will fire footerhandler,closeHandler and closeHandlerSomethingElse.
+                (travels hierarchially until it finds no more event and finally bubbled event i.e onclose fires 
+                if handled somewhere else in parent component
+                ) 
+                even if you remove closeHandler and use it in connectedCallback or constructor, the result is same
+             -->
+            <button class="slds-button slds-button_brand" onclick={closeHandlerModal}>Ok</button>
+        </footer>
+        </div>
+    </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
