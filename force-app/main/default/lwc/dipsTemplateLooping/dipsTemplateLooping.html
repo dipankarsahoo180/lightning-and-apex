@@ -1,0 +1,36 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card variant="Narrow" title="Looping(for:each and iterator:some name in smallcase as iterator)">
+        <p class="slds-p-horizontal_small" style="color:blue;font-size:20px">list of Items = ['Bag','Tiffin','Water Bottle','Books','Pen']</p>
+        <p class="slds-p-horizontal_small" style="color:blue;font-size:20px">For each loop in template. </p>
+        <template for:each={listofItemsForEachLoop} for:item="con">
+           <li key={con} class="slds-p-horizontal_small">
+                {con}
+           </li>
+        </template>
+
+        <p class="slds-p-horizontal_small" style="color:blue;font-size:20px">Iterator loop in template. Works same as for:each loop</p>
+        <template iterator:itemlist={listofItemsInIterator}>
+            <li key={itemlist.value.Serial} class="slds-p-horizontal_small">
+                    {itemlist.value.name}
+            </li>
+        </template>
+
+        <p class="slds-p-horizontal_small" style="color:blue;font-size:20px">Iterator loop in template with the use of itemlist.first and itemlist.last</p>
+        <template iterator:itemlist={listofItemsInIterator}>
+            <div key={itemlist.value.Serial} >
+                
+                <div if:true={itemlist.first}>
+                    <p class="slds-p-horizontal_small">Below is first item in the list itemlist.value.name itemlist.first</p>
+                </div>
+
+                <li class="slds-p-horizontal_small">{itemlist.value.name}</li>
+
+                <div if:true={itemlist.last} >
+                    <p class="slds-p-horizontal_small">Above is last item in the list itemlist.value.name itemlist.last</p>
+                </div>
+            </div>
+        </template>
+
+    </lightning-card>
+</template>
