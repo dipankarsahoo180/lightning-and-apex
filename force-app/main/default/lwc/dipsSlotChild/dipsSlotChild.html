@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Example of Slot">
+        <p class="slds-p-horizontal_small" style="font-size:20px;color:blue">
+            Slot One to be rendered Below
+        </p>
+        <slot name="slotOne"></slot>
+
+        <p class="slds-p-horizontal_small" style="font-size:20px;color:blue">
+            Slot Two to be rendered Below
+        </p>
+        <slot name="slotTwo"></slot>
+        
+        <p class="slds-p-horizontal_small" style="font-size:20px;color:blue">
+            Un-named Slot to be rendered Below
+        </p>
+        <slot></slot>
+    </lightning-card>
+    
+</template>
