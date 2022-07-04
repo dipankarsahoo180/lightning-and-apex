@@ -1,0 +1,9 @@
+<template>
+    <lightning-button class="slds-var-p-top_medium" 
+    variant="brand" 
+    label="Invoke a Method in Child" 
+    onclick={handleInvokeInChild}></lightning-button>
+    <div class="slds-var-p-top_medium">  </div>
+    <c-dips-getter-setter user-detail={userDetail} record-id={recordId} uppercase-item-name="Dwane Johnson" oncustomeventinchild={handleInvokeInChild}></c-dips-getter-setter>
+    
+</template>
