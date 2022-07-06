@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="Global">
+
+    <aura:attribute name="messagePublished" type="String" />
+
+    <lightning:messageChannel 
+        type="dips_lms_comp__c"
+        aura:id = "lmsMessage"
+        scope="APPLICATION"
+    />
+    
+    <lightning:card title="Aura LMS Publisher">
+        <div class="slds-var-p-horizontal_small">
+            <h1>Hello! You are going to publish this: {!v.messagePublished}</h1>
+            <lightning:input name="publishValue"
+                    type="text"
+                    id="textInputForPublish" 
+                    label="Enter Value to Publish" 
+                    value="{!v.messagePublished}"
+                    onkeyup="{!c.handleInput}"
+                    placeholder="type here..." />
+
+            <div class="slds-var-p-top_medium">  </div>
+            <lightning:button class="slds-var-m-vertical_small" variant="brand" label="Click To Publish" onclick="{!c.handlePublish}" />
+        </div>
+    </lightning:card>
+
+</aura:component>

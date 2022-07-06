@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="Global">
+
+    <aura:attribute name="messageReceived" type="String" />
+
+    <lightning:messageChannel 
+        type="dips_lms_comp__c"
+        aura:id = "lmsMessage"
+        onMessage="{!c.handleReceivedMessage}"
+        scope="APPLICATION"
+    />
+    
+    <lightning:card title="Aura LMS Subscriber">
+        <div class="slds-var-p-horizontal_small">
+            <h1>Hello! You have recieved this: {!v.messageReceived}</h1>
+        </div>
+    </lightning:card>
+    
+
+
+</aura:component>
