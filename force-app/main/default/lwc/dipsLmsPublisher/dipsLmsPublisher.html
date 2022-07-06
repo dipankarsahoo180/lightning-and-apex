@@ -1,12 +1,12 @@
 <template>
-    <lightning-card  variant="Narrow" title="LMS Publisher">
+    <lightning-card  variant="Narrow" title="lwc LMS Publisher">
         <lightning-input 
             type="text" 
             variant="standard" 
             name="name" 
             label="Type here to publish" 
             placeholder="type here..." 
-            onkeypress={handlePublisherInput}
+            onkeyup={handlePublisherInput}
             class="slds-p-horizontal_small">
         </lightning-input>
     </lightning-card>
