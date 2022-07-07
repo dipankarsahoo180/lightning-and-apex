@@ -12,7 +12,9 @@ export default class DipsLmsPublisher extends LightningElement {
     handlePublisherInput(event){
         this.inputValue = event.target.value;
         const publishedValues = {
-            dipsFieldOne : this.inputValue
+            dipsFieldOne : {
+                value :  this.inputValue
+            }
         };
         publish(this.contextOfTheMessage, messageChannelName, publishedValues);
     }

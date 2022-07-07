@@ -19,7 +19,7 @@ export default class DipsLmsSubscriber extends LightningElement {
     subscribeToMessageChannel(){
         if(!this.subscription){
             this.subscription = subscribe(this.contextOfTheMessage, messageChannelName,(message)=>{
-                this.subsciberValue = message.dipsFieldOne.value?message.dipsFieldOne.value:message.dipsFieldOne;
+                this.subsciberValue = message.dipsFieldOne.value;
             });
         }
         
