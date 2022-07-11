@@ -1,0 +1,12 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Show Toas Notification">
+        <div class="slds-var-p-horizontal_small slds-grid slds-gutters">
+            <lightning-button class="slds-col" variant="success" label="Success Toast" onclick={handleClickSuccess}></lightning-button>
+            <lightning-button class="slds-col" variant="destructive" label="Error Toast" onclick={handleClickError}></lightning-button>
+            <lightning-button class="slds-col" variant="brand" label="Info Toast" onclick={handleClickInfo}></lightning-button>
+            <lightning-button class="slds-col" variant="neutral" label="Info Toast w Link" onclick={handleClickInfoWithLink}></lightning-button>
+        </div>
+
+    </lightning-card>
+    
+</template>
