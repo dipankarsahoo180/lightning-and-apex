@@ -39,17 +39,17 @@ export default class DipsRecordEditForm extends LightningElement {
     }
 
     recordEditFormHandleError(event){
-        let errorMsg = ''
-        event.detail.output.fieldErrors.Name.forEach(value=>{
-            errorMsg = value.fieldLabel + " : "+ value.message;
-            this.dispatchEvent(new ShowToastEvent(
-                {
-                title: "Errorr!!!",
-                message: errorMsg,
-                variant: "Error"
-                }
-            ));
-        });
+        // let errorMsg = ''
+        // event.detail.output.fieldErrors.Name.forEach(value=>{
+        //     errorMsg = value.fieldLabel + " : "+ value.message;
+        //     this.dispatchEvent(new ShowToastEvent(
+        //         {
+        //         title: "Errorr!!!",
+        //         message: errorMsg,
+        //         variant: "Error"
+        //         }
+        //     ));
+        // });
         
     }
 }
