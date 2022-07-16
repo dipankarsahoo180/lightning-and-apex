@@ -50,6 +50,14 @@
         <name>LightningComponentBundle</name>
     </types>
 !-->
+    <types>
+        <members>lwcCustomTextErrorOverride</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>lwcSetErrorsOverride</members>
+        <name>LightningComponentBundle</name>
+    </types>
     
     <version>54.0</version>
 </Package>
