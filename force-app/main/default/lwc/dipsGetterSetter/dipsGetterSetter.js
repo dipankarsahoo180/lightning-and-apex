@@ -24,8 +24,8 @@ export default class DipsGetterSetter extends LightningElement {
 
     set userDetail(somevalue){
         console.log('Setter is called ');
-        let role = 'System ';
-        this.recordDetail = {...somevalue, extra:'Dipankar Sahoo', role:role+' Administrator'}
+        let role = 'Lazy ';
+        this.recordDetail = {...somevalue, extra:'Dipankar Sahoo', role:role+' Sloth Static Value'}
         return this.recordDetail;
     }
 
