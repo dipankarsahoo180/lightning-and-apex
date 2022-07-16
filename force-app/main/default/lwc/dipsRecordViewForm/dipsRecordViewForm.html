@@ -1,0 +1,27 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Dips Record View Form" icon-name="standard:account">
+        <div class="slds-var-m-horizontal_medium">
+            <!-- Only layout can be controlled. All fields are read only -->
+            <lightning-record-view-form
+                object-api-name="Account"
+                record-id={recordId}
+                >
+                <div class="slds-grid slds-gutters">
+
+                    <div class=" slds-col slds-size_6-of-12">
+                        <lightning-output-field field-name={Name_Field}></lightning-output-field>
+                        <lightning-output-field field-name={Industry_Field}></lightning-output-field>
+                        <lightning-output-field field-name={Type_Field}></lightning-output-field>
+                    </div>
+                    <div class=" slds-col slds-size_6-of-12">
+                        <lightning-output-field field-name={Source_Field}></lightning-output-field>
+                    </div>
+
+                </div>
+
+            </lightning-record-view-form>
+
+        </div>
+    </lightning-card>
+    
+</template>
