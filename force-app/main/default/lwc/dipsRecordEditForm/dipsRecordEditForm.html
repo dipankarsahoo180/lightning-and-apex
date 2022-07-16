@@ -1,0 +1,71 @@
+<template>
+    <lightning-card  variant="Narrow"  title="dips Record Edit Form" icon-name="standard:contact">
+
+            <lightning-record-edit-form id="recordViewForm"
+                record-id={contactRecordID}
+                object-api-name={ObjectAPIName}
+                onsuccess={recordEditFormHandler}
+                onerror={recordEditFormHandleError}
+            >
+                <lightning-messages></lightning-messages>
+                <div class="slds-grid">
+
+                    <div class="slds-col slds-size_6-of-12">
+                        <lightning-input-field field-name={fields.FirstName_Field}></lightning-input-field>
+                        <lightning-input-field field-name="LastName"></lightning-input-field>
+                        <lightning-input-field field-name="Phone"></lightning-input-field> 
+                    </div>
+                    
+                    <div class="slds-col slds-size_6-of-12">
+                        <div class="slds-var-p-top_xx-small">Search Account</div>
+                        <lightning-input-field variant="label-hidden" field-name={fields.Account_Field}></lightning-input-field>
+                        <!-- This is to hide the label and use a custom label Enter your DOB instead of Birthdate -->
+                        <div class="slds-var-p-top_small">Enter your DOB</div>
+                        <lightning-input-field variant="label-hidden" field-name="Birthdate"></lightning-input-field>
+                        <!--Picklist-->
+                        <div class="slds-var-p-top_small">Choose Level</div>
+                        <lightning-input-field variant="label-hidden" field-name="Level__c"></lightning-input-field>
+                    </div> 
+
+                </div>
+                <div class="slds-grid slds-gutters slds-var-m-horizontal_small">
+
+                    <div>
+                        <!-- if:false={isRecordPage} -->
+                        <!-- cancel -->
+                        <lightning-button
+                            variant="destructive"
+                            label="Cancel"
+                            onclick={cancelRecordEditForm}
+                        >
+                        </lightning-button>
+                    </div>
+
+                    <!-- submit -->
+                    <div if:true={flag}>
+                        <lightning-button 
+                            class="slds-var-m-horizontal_small"
+                            variant="success" 
+                            type="submit" 
+                            label="Update record"
+                        >
+                        </lightning-button>
+                    </div>
+
+                    <div if:false={flag}>
+                        <lightning-button
+                        class="slds-var-m-horizontal_small" 
+                            variant="Brand" 
+                            type="submit" 
+                            label="Update record"
+                        >
+                        </lightning-button>
+                    </div>
+
+                </div>
+            </lightning-record-edit-form>
+            
+
+    </lightning-card>
+    
+</template>
