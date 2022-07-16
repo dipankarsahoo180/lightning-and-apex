@@ -1,0 +1,40 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Dips Record Form" icon-name="standard:account">
+        <div if:true={AccountId} class="slds-var-m-horizontal_medium"> View Account
+            <lightning-record-form
+                record-id={AccountId}
+                object-api-name={Objectname}
+                fields={Account_Field_List}
+                onsuccess={successHandler}
+                mode="readonly"
+                columns="2"
+            >
+            </lightning-record-form>
+        </div>
+        <div if:true={AccountId} class="slds-var-m-horizontal_medium"> Edit Account
+            <lightning-record-form
+                record-id={AccountId}
+                object-api-name={Objectname}
+                onsuccess={successHandler}
+                mode="edit"
+                columns="2"
+                layout-type="Compact"
+            >
+            </lightning-record-form>
+        </div>
+<!-- Field List is mandatory in creating record. It does not throuw error but you will not see the form in salesforce -->
+        <div if:false={AccountId} class="slds-var-m-horizontal_medium"> Create Account
+            <lightning-record-form
+                object-api-name={Objectname}
+                fields={Account_Field_List} 
+                onsuccess={successHandler}
+                columns="3"
+            >
+            </lightning-record-form>
+        </div>
+        
+
+        
+    </lightning-card>
+    
+</template>
