@@ -1,0 +1,42 @@
+<template>
+    <div class="slds-card slds-theme_default">
+        <div class="slds-card__body slds-card__body_inner">
+            <h1 style="color: rgb(10, 10, 124);font: 1.2rem solid bold;text-align:center">Get Picklist values by Recordtype</h1>
+            <div class="slds-grid slds-wrap slds-var-p-bottom_xx-small">
+                <div class="slds-col slds-size_5-of-12 slds-text-heading_small">
+                    <strong>Personal Contact Level</strong>
+                </div>
+                <div class="slds-col slds-size_7-of-12">
+                    <lightning-combobox
+                        name="personalContactlevelSelected"
+                        label="Personal Contact"
+                        value={personalContactlevelSelected}
+                        placeholder="Select Personal level"
+                        options={personalLevelOptions}
+                        onchange={handlepersonalContactlevelChange}
+                        required
+                    ></lightning-combobox>
+                </div>
+                <h1>Selected Level is {personalContactlevelSelected}</h1>
+                
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_5-of-12 slds-text-heading_small">
+                    <strong>Business Contact Level</strong>
+                </div>
+                <div class="slds-col slds-size_7-of-12">
+                    <lightning-combobox
+                    name="BusinessContactLevelSelected"
+                    label="Business Contact"
+                    value={BusinessContactLevelSelected}
+                    placeholder="Select Business level"
+                    options={businessLevelOptions}
+                    onchange={handleBusinessContactLevelChange}
+                ></lightning-combobox>
+                </div>
+                <h1>Selected Level is {BusinessContactLevelSelected}</h1>
+            </div>
+        </div>
+    </div>
+    
+</template>
