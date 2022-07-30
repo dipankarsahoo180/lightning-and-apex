@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+	<c:dipsRecordEditForm></c:dipsRecordEditForm>
+</aura:component>
