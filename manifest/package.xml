@@ -49,13 +49,21 @@
         <members>osCommunicateWithBaseMixin</members>
         <name>LightningComponentBundle</name>
     </types>
-!-->
-    <types>
+        <types>
         <members>lwcCustomTextErrorOverride</members>
         <name>LightningComponentBundle</name>
     </types>
     <types>
         <members>lwcSetErrorsOverride</members>
+        <name>LightningComponentBundle</name>
+    </types>
+!-->
+<types>
+        <members>generateData</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>LightningComponentBundle</name>
     </types>
     

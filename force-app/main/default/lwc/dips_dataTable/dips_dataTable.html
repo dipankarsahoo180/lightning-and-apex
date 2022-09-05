@@ -1,0 +1,29 @@
+<template>
+    <lightning-card  variant="Narrow">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-p-bottom_small slds-m-left_small slds-col">
+                <lightning-button
+                    variant="brand" label="Show Contacts"  
+                    onclick={handleFetchContacts}>
+                </lightning-button>
+            </div>
+            <div class="slds-p-bottom_small slds-p-left_small slds-col">
+                <lightning-button
+                    variant="brand" label="Hide Contacts"  
+                    onclick={handleHideContacts}>
+                </lightning-button>
+            </div>
+        </div>
+        
+        
+        <template if:true={dataFound}>
+            <c-dips-custom-data-table
+                key-field="id"
+                data={data}
+                columns={columns}>
+            </c-dips-custom-data-table>
+        </template>
+        
+
+    </lightning-card>
+</template>
