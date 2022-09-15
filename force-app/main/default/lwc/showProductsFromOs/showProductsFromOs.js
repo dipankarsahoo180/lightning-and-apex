@@ -8,13 +8,14 @@ import tmpl from './showProductsFromOs.html';
  * @extends {OmniscriptBaseMixin(LightningElement)}
  */
 export default class ShowProductsFromOs extends OmniscriptBaseMixin(LightningElement) {
+
     /**
-     *allProducts : It accepts the products in a array format from omniscript.
-     *showModal   : Passed from Omniscript as true or false based on whether products found or not.
-     *hideFooter  : Passed from Omniscript as true or false
-     *hideHeader  : Passed from Omniscript as true or false
-     *layout      : Passed from Omniscript as newport or lightning
-     *type        : Passed from Omniscript as success or error or info
+     *allProducts : It accepts the products in a array format from omniscript(required).
+     *showModal   : Passed from Omniscript as true or false based on whether products found or not(required).
+     *hideFooter  : Passed from Omniscript as true or false(optional).
+     *hideHeader  : Passed from Omniscript as true or false(optional).
+     *layout      : Passed from Omniscript as newport or lightning(optional).
+     *type        : Passed from Omniscript as success or error or info(optional).
      */
 
     @api allProducts;
@@ -25,9 +26,8 @@ export default class ShowProductsFromOs extends OmniscriptBaseMixin(LightningEle
     @api type = 'success'
     isModalRendered = false;
 
-    
     /**
-     * used to set the display to block when the template is rendered
+     * used to set the display to block when the template is rendered.
      * It calls openModal() from child component and sets the display to block;
      * @memberof ShowProductsFromOs
      */
