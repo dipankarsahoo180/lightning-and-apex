@@ -1,0 +1,46 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={showModal}>
+        <omnistudio-omniscript-modal
+            data-omni-key='omnimodal'
+            class="mymodal"
+            type={type}
+            layout= {layout}
+            hide-footer={hideFooter}
+            hide-header={hideHeader}>
+            <div slot="header"><div>Product List</div></div>
+
+            <div slot="content">
+                <div>
+                    <lightning-accordion allow-multiple-sections-open>
+                        <template for:each={allProducts} for:item="prod">
+
+                            <lightning-accordion-section key={prod.productId} name={prod.productId} label={prod.Name}>
+                                <p>This is the content area for {prod.Name} section .</p>
+                                <p>Recordtype : {prod.RecordTypeName__c} .</p>
+                                <p>Product ID : {prod.productId} .</p>
+
+                                <lightning-accordion allow-multiple-sections-open>
+                                    <template for:each={prod.childProducts.records} for:item="childProd">                
+                                        <lightning-accordion-section key={childProd.Id} name={childProd.Id} label={childProd.Name}>
+                                            <p>{childProd.Name}.</p>
+                                            <p>{childProd.RecordTypeName__c}.</p>
+                                        </lightning-accordion-section>
+                                    </template>
+                                </lightning-accordion>
+                            </lightning-accordion-section>
+
+                        </template>
+                    </lightning-accordion>
+                </div>
+            </div>
+            
+            <div slot="footer">
+                <div>
+                    <lightning-button variant="success" label="Close"  onclick={closeModal}></lightning-button>
+                </div>
+            </div>
+
+        </omnistudio-omniscript-modal>
+    </template>
+</template>
