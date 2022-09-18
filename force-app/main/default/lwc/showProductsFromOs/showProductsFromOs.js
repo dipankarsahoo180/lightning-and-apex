@@ -1,6 +1,7 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api,track } from 'lwc';
 import { OmniscriptBaseMixin } from 'omnistudio/omniscriptBaseMixin';
 import tmpl from './showProductsFromOs.html';
+
 /**
  * This class is used to show a custom modal with the list of products inside omniscript.
  * @export ShowProductsFromOs
@@ -10,21 +11,25 @@ import tmpl from './showProductsFromOs.html';
 export default class ShowProductsFromOs extends OmniscriptBaseMixin(LightningElement) {
 
     /**
-     *allProducts : It accepts the products in a array format from omniscript(required).
-     *showModal   : Passed from Omniscript as true or false based on whether products found or not(required).
+     *allProducts : It accepts the products in an array format from omniscript(required).
+     *showModal   : true or false based on whether products found or not(required).
      *hideFooter  : Passed from Omniscript as true or false(optional).
      *hideHeader  : Passed from Omniscript as true or false(optional).
-     *layout      : Passed from Omniscript as newport or lightning(optional).
+     *layout      : Passed from Omniscript as newport or lightning(optional) and it should match with layout of Omniscript.
      *type        : Passed from Omniscript as success or error or info(optional).
      */
 
-    @api allProducts;
-    @api showModal;
+    @track productList=[];
     @api hideFooter = false;
     @api hideHeader = false;
     @api layout = 'newport';
-    @api type = 'success'
+    @api type = 'success';
+    @api allProducts;
     isModalRendered = false;
+
+    get showModal(){
+        return this.allProducts?.length>0 ? true:false;
+    }
 
     /**
      * used to set the display to block when the template is rendered.
