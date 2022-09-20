@@ -1,0 +1,18 @@
+<template>
+    <!-- Button to create new case once account Id is selected -->
+    <div class="slds-m-top_large">
+        <omnistudio-button
+            if:true={accountId}
+            variant="brand"
+            label="Create New Case"
+            onclick={openNewCaseModal}>
+        </omnistudio-button>
+    </div>
+    <c-cf-dipankarsample-selectable-item if:true={accountId} record-id={accountId}></c-cf-dipankarsample-selectable-item>
+    <!-- Modal to create new case -->
+    <omnistudio-modal if:true={prefill} title="Create New Case" size="large">
+        <div slot="content">
+            <c-dipankarsample-create-case-english if:true={showOS} layout="lightning" prefill={prefill}></c-dipankarsample-create-case-english>
+        </div>
+    </omnistudio-modal>
+</template>
