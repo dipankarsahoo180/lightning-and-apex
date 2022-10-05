@@ -1,0 +1,19 @@
+@font-face {
+    /*
+        font family is used to give a name to the custom font,
+         you use this for referencing the custom font later
+    */
+    font-family: "Monteserrat";
+ 
+    /*
+        This is the location of the Custom Font, note, I have stored in a ZIP file
+        Montserrat_Font is the api name of file
+     */
+    src: url('/resource/Montserrat_Font/Montserrat-SemiBold.ttf') format('TrueType');
+}
+
+
+.custom_css{
+    font-size: 50px;
+    font-family: 'Monteserrat';
+}
