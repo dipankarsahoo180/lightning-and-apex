@@ -1,0 +1,406 @@
+<template>
+    <div if:false={isPrintView}>
+        <div class="quote__container">
+            <span class="quote__container--title" onclick={toggleSecOne}><b>Quote Details</b></span>
+            <div if:true={showSecOne} class="slds-grid slds-wrap slds-gutters quote__content">
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="section1-container">
+                        <div class="content-width"><b>Account Name: </b> {groupName}</div>
+                    </div>
+                    <div class="section1-container">
+                        <div class="content-width"><b>Agent Name: </b>{agentName}</div>
+                    </div>
+                    <div class="section1-container">
+                        <div class="content-width"><b>General Agency: </b>{managingAgent}</div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="section1-container">
+                        <div><b>Requested Effective Date: </b>{reqEffDate}</div>
+                    </div>
+                    <div class="section1-container">
+                        <div><b>Requested Renewal Month: </b>{reqRenMon}</div>
+                    </div>
+                    <div class="section1-container">
+                        <div><b>Rating Area: </b>{ratingArea}</div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="section1-container">
+                        <div><b>FTE: </b>{FTE}</div>
+                    </div>
+                    <div class="section1-container">
+                        <div><b>Expected Active Enrolling: </b>{expActiveEnroll}</div>
+                    </div>
+                    <div class="section1-container">
+                        <div><b>Expected Waiving: </b>{expWaiving}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION TWO -->
+        <div class="quote__container">
+            <span onclick={toggleSecTwo}
+                class="pointer-finger nds-border_bottom nds-p-bottom_xx-small nds-text-heading_medium quote__container--title"><b>Quoted Products</b></span>
+            <div if:true={showSecTwo} class="quote__content">
+                <p if:true={censusTwo} class="nds-text-heading_x-small nds-p-top_medium nds-m-bottom_medium"><b>Estimated Total Monthly Premium: {totalMonthlyPremium}</b></p>
+                <div class="quote__content--tables">
+                    <!-- MEDICAL Table -->
+                    <div class="">
+                        <div if:true={medicalProductsLength} >
+                            <h3 class="nds-m-bottom_small">MEDICAL</h3>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="slds-truncate">Product Name</div>
+                                        </th>
+                                        <th>
+                                            <div class="slds-truncate">Est. Prem</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={medicalProducts} for:item="product">
+                                        <tr key={product.index}>
+                                            <td>
+                                                <div class="slds-truncate" if:false={copyQuote}>
+                                                    {product.Name}
+                                                </div>
+                                                <div class="slds-truncate" if:true={copyQuote}>
+                                                    {product.Name}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    {product.Price}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- DENTAL Table -->
+                    <div class="">
+                        <div if:true={dentalProductsLength}>
+                            <h3 class="nds-m-bottom_small">DENTAL</h3>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="slds-truncate" title="Product Name">Product Name</div>
+                                        </th>
+                                        <th>
+                                            <div class="slds-truncate" title="Est. Monthly Premium">Est. Prem</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={dentalProducts} for:item="product">
+                                        <tr key={product.index}>
+                                            <td>
+                                                <div class="slds-truncate" if:false={copyQuote}>
+                                                    {product.Name}
+                                                </div>
+                                                <div class="slds-truncate" if:true={copyQuote}>
+                                                    {product.Name}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    {product.Price}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- VISION Table -->
+                    <div class="">
+                        <div if:true={visionProductsLength}>
+                            <h3 class="nds-m-bottom_small">VISION</h3>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="slds-truncate">Product Name</div>
+                                        </th>
+                                        <th>
+                                            <div class="slds-truncate">Est. Prem</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={visionProducts} for:item="product">
+                                        <tr key={product.index}>
+                                            <td>
+                                                <div class="slds-truncate" if:false={copyQuote}>
+                                                    {product.Name}
+                                                </div>
+                                                <div class="slds-truncate" if:true={copyQuote}>
+                                                    {product.Name}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    {product.Price}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="quote__container" if:true={censusTwo}>
+            <span class="quote__container--title"><b>Estimated Total Premiums</b></span>
+            <div class="quote__content">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                    <thead>
+                        <tr>
+                            <th><div class="slds-truncate">Medical Plan</div></th>
+                            <th><div class="slds-truncate">Dental Plan</div></th>
+                            <th><div class="slds-truncate">Vision Plan</div></th>
+                            <th><div class="slds-truncate">Estimated Total Premium</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={possibleCombinations} for:item="member">
+                            <tr key={member}>
+                                <td><div class="slds-truncate">{member.medicalId}</div></td>
+                                <td><div class="slds-truncate">{member.dentalId}</div></td>
+                                <td><div class="slds-truncate">{member.visionId}</div></td>
+                                <td><div class="slds-truncate">{member.estimatedRate}</div></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+
+        <!-- SECTION THREE -->
+        <!-- Table IF CENSUS1 -->
+        <div class="quote__container">
+            <span onclick={toggleSecThree} class="quote__container--title"><b>Census with Rates</b></span>
+            <div if:true={showSecThree} class="quote__content">
+                <div if:false={censusTwo}>
+                    <table width="100%" class="nds-table nds-table_bordered nds-table_col-bordered"
+                        id="quoteDetailsSection3-thrucensus1">
+                        <thead>
+                            <tr>
+                                <th><b>First Name</b></th>
+                                <th><b>Last Name</b></th>
+                                <th><b>Date of Birth</b></th>
+                                <th><b>Age</b></th>
+                                <th><b>Relationship</b></th>
+                                <th><b>Member Type</b></th>
+                                <th if:true={medicalProductsLength}><b>Medical<span class="nds-float_right"
+                                            style="padding-right: 5%;">Rate</span></b></th>
+                                <th if:true={dentalProductsLength}><b>Dental<span class="nds-float_right"
+                                            style="padding-right: 5%;">Rate</span></b></th>
+                                <th if:true={visionProductsLength}><b>Vision<span class="nds-float_right"
+                                            style="padding-right: 5%;">Rate</span></b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={section3} for:item="member">
+                                <div key={member.Id}>
+                                    <tr>
+                                        <th>{member.member.vlocity_ins__FirstName__c}</th>
+                                        <th>{member.member.vlocity_ins__LastName__c}</th>
+                                        <th>{member.member.vlocity_ins__Birthdate__c}</th>
+                                        <th>{member.member.MemberAge__c}</th>
+                                        <td>{member.member.Relationship__c}</th>
+                                        <th>{member.member.vlocity_ins__MemberType__c}</th>
+                                        <th if:true={medicalProductsLength}>
+                                            <table if:true={medicalProductsLength}>
+                                                <tr class="hide-element">
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <template for:each={member.plans} for:item="p">
+                                                    <div key={p.index}>
+                                                        <template if:true={p.medicalType}>
+                                                            <tr>
+                                                                <td>{p.Product_Name__c}</td>
+                                                                <template if:false={p.isTotalPriceExists}>
+                                                                    <td>{p.totalPrice}</td>
+                                                                    <td>$0.00</td>
+                                                                </template>
+                                                            </tr>
+                                                        </template>
+                                                    </div>
+                                                </template>
+                                            </table>
+                                        </th>
+                                        <th if:true={dentalProductsLength}>
+                                            <table if:true={dentalProductsLength}>
+                                                <tr class="hide-element">
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <template for:each={member.plans} for:item="p">
+                                                    <div key={p.index}>
+                                                        <template if:true={p.dentalType}>
+                                                            <tr>
+                                                                <td>{p.Product_Name__c}</td>
+                                                                <template if:false={p.isTotalPriceExists}>
+                                                                    <td>{p.totalPrice}</td>
+                                                                    <td>$0.00</td>
+                                                                </template>
+                                                            </tr>
+                                                        </template>
+                                                    </div>
+                                                </template>
+                                            </table>
+                                        </th>
+                                        <th if:true={visionProductsLength}>
+                                            <table if:true={visionProductsLength}>
+                                                <tr class="hide-element">
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <template for:each={member.plans} for:item="p">
+                                                    <template for:each={member.plans} for:item="p">
+                                                        <div key={p.index}>
+                                                            <template if:true={p.visionType}>
+                                                                <tr>
+                                                                    <td>{p.Product_Name__c}</td>
+                                                                    <template if:false={p.isTotalPriceExists}>
+                                                                        <td>{p.totalPrice}</td>
+                                                                        <td>$0.00</td>
+                                                                    </template>
+                                                                </tr>
+                                                            </template>
+                                                        </div>
+                                                    </template>
+                                                </template>
+                                            </table>
+                                        </th>
+                                    </tr>
+                                </div>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Table IF CENSUS2 -->
+                <div if:true={censusTwo}>
+                    <table width="100%" class="nds-table nds-table_bordered nds-table_col-bordered"
+                        id="quoteDetailsSection3-thrucensus2">
+                        <thead>
+                            <tr>
+                                <th><b>First Name</b></th>
+                                <th><b>Last Name</b></th>
+                                <th><b>Date of Birth</b></th>
+                                <th><b>Age</b></th>
+                                <th><b>Relationship</b></th>
+                                <th><b>Member Type</b></th>
+                                <th if:true={medicalProductsLength}><b>Medical</b></th>
+                                <th if:true={medicalProductsLength}><b>Rate</b></th>
+                                <th if:true={dentalProductsLength}><b>Dental</b></th>
+                                <th if:true={dentalProductsLength}><b>Rate</b></th>
+                                <th if:true={visionProductsLength}><b>Vision</b></th>
+                                <th if:true={visionProductsLength}><b>Rate</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={membersList} for:item="member">
+                                <!-- <div key={member.index}> -->
+                                    <tr key={member.index}>
+                                        <template if:true={member.memberEnrollingStatus}>
+                                            <td>{member.firstName}</td>
+                                            <td>{member.lastName}</td>
+                                            <td>{member.birthdate}</td>
+                                            <td>{member.age}</td>
+                                            <td>{member.relationship}</td>
+                                            <td>{member.memberType}</td>
+                                            <td if:true={medicalProductsLength}>{member.medProdName}</td>
+                                            <template if:true={medicalProductsLength}>
+                                                <td if:true={member.medProdName}>{member.medPremium}</td>
+                                                <td if:false={member.medProdName}> </td>
+                                                <!--blank-->
+                                            </template>
+                                            <td if:true={dentalProductsLength}>{member.dentProdName}</td>
+                                            <template if:true={dentalProductsLength}>
+                                                <td if:true={member.dentProdName}>{member.dentPremium}</td>
+                                                <td if:false={member.dentProdName}> </td>
+                                                <!--blank-->
+                                            </template>
+                                            <td if:true={visionProductsLength}>{member.visProdName}</td>
+                                            <template if:true={visionProductsLength}>
+                                                <td if:true={member.visProdName}>{member.visPremium}</td>
+                                                <td if:false={member.visProdName}> </td>
+                                                <!--blank-->
+                                            </template>
+                                        </template>
+                                    </tr>
+                                    <tr key={member.index}>
+                                        <template if:true={member.isNextamilyIdentifierDifferent}>
+                                            <td colspan="7"><b>Subtotal: </b></td>
+                                            <td if:true={member.familyIdentifierGreaterThanZero}>
+                                                {member.memberFamilyIdentifiersumMed}</td>
+                                            <td if:false={member.familyIdentifierGreaterThanZero}></td>
+                                            <td></td>
+                                            <td if:true={member.familyIdentifierGreaterThanZero}>
+                                                {member.memberFamilyIdentifiersumDent}</td>
+                                            <td if:false={member.familyIdentifierGreaterThanZero}></td>
+                                            <td></td>
+                                            <td if:true={member.familyIdentifierGreaterThanZero}>
+                                                {member.memberFamilyIdentifiersumVis}</td>
+                                            <td if:false={member.familyIdentifierGreaterThanZero}></td>
+                                            <td></td>
+                                        </template>
+                                    </tr>
+                                        <tr key={member.index}>
+                                            <template if:true={member.isNextamilyIdentifierDifferent}>
+                                            <td colspan="12"><b>Family Total: </b>{member.memberFamilyIdentifiersumTotal}</td>
+                                        </template>
+                                        </tr>
+                                <!-- </div> -->
+                            </template>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <!--SPINNER-->
+        <div if:true={loadingSecThree} style="text-align: center;">
+            <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+        </div>
+        <br />
+        <!-- Disclaimer Text -->
+        <p class="nds-text-body_small">
+            *We reserve the right to adjust rates if any of the assumptions or calculations used in the quoting process
+            are incorrect. Final rates will be determined based on actual group enrollment and participation.
+            <br />
+            *Plans and rates are not final until they have been approved by DIFS and CMS
+            <br />
+            *Your agent is providing a Summary of Benefits and Coverage with this quote.
+            <br />
+            *To comply with the Patient Protection and Affordable Care Act, groups may be required to make changes to
+            their health insurance coverage. This may result in an adjustment to the rates.
+        </p>
+
+        <br />
+        <br />
+
+        <iframe src = {pdfSource} class="outputSummaryPage" style="display:none;" width="0" height="0"></iframe>
+        <div class="slds-no-print">
+            <lightning-button variant="brand-outline" label="Print Page" onclick={handlePrintQuoteSummary}></lightning-button>
+        </div>
+    </div>
+</template>
