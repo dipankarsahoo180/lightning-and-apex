@@ -1,0 +1,41 @@
+<!-- sldsValidatorIgnore -->
+<!--
+  @description       : 
+  @author            : Dipankar Sahoo
+  @group             : 
+  @last modified on  : 07-26-2023
+  @last modified by  : Dipankar Sahoo
+-->
+<template>
+  <!-- sldsValidatorIgnoreNextLine -->
+  <li data-index={jsonDef.indexInParent}
+        class="slds-progress__item slds-is-relative slds-is-completed omni-hz-stepchart-list-item omni-hz-stepchart-completed">
+      <button class="slds-button slds-button_icon slds-button_icon slds-progress__marker slds-progress__marker_icon"
+              aria-describedby={jsonDef.name}
+              onclick={handleStepClick}
+              data-index={jsonDef.indexInParent}>
+        <svg class="slds-button__icon"
+             data-index={jsonDef.indexInParent}
+             aria-hidden="true">
+          <use data-index={jsonDef.indexInParent}
+               xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#success">
+          </use>
+        </svg>
+        <span class="slds-assistive-text">Completed</span>
+      </button>
+      <div id={jsonDef.name}
+           role="tooltip"
+           class="slds-is-absolute"
+           onclick={handleStepClick}
+           data-index={jsonDef.indexInParent}>
+        <span class="omni-hz-stepchart-popover-container">
+          <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom omni-hz-stepchart-popover"
+               aria-hidden="true">
+            <div class="slds-popover__body slds-truncate">
+              {stepLabel}
+            </div>
+          </div>
+        </span>
+      </div>
+    </li>
+</template>
