@@ -1,4 +1,4 @@
-global class CustomRemoteAction implements Callable
+global without sharing class CustomRemoteAction implements Callable
 {
     /*
         inputs - arguments - List<Object> of passed in arguments
@@ -20,12 +20,23 @@ global class CustomRemoteAction implements Callable
             String AccountId = (String)inputs.get('AccountId');
             output.put('AllContacts', getContacts(AccountId));
         }
+        /**
+         * FORMULA: FUNCTION('CustomRemoteAction','getContactsFromDR',%AccountId%)
+         * FORMULA RESULT PATH: getAllContacts will always get output.get('result') value 
+         * So you should always do output.put('result')//hardcode result
+         */
+        else if (methodName == 'getContactsFromDR')
+        {
+            List<Object> arguments = (List<Object>)inputs.get('arguments');
+            String AccountId = (String)arguments[0];
+            output.put('result', getContacts(AccountId));
+        }
         return true;
     }
 
     List<Object> getContacts(String AccountId)
     {
-        List<Contact> allContacts =   [Select Id,Firstname,LastName,Phone,Email, AccountId from Contact where AccountId =:AccountId];
+        List<Contact> allContacts =   [Select Id,Firstname,LastName,Phone,Email,AccountId,CreatedDate,LastModifiedDate from Contact where AccountId =:AccountId WITH USER_MODE];
         List<Object> output = new List <Object>();
         for(Contact eachContact : allContacts){
             Map<String,Object> contactMap = new Map<String,Object>();
@@ -35,6 +46,8 @@ global class CustomRemoteAction implements Callable
             contactMap.put('ContactEmail',eachContact.Email);
             contactMap.put('AccountId',eachContact.AccountId);
             contactMap.put('ContactPhone',eachContact.Phone);
+            contactMap.put('ContactCreatedDate',eachContact.CreatedDate);
+            contactMap.put('ContactModifiedDate',eachContact.LastModifiedDate);
             output.add(contactMap);
         }
         return output;
