@@ -1,0 +1,36 @@
+<template>
+  <div class="header">
+    <p class="slds-text-heading_large">⬅️Absent</p>
+    <p class="slds-text-heading_large">Present ➡️</p>
+  </div>
+
+  <div class="swipe-container">
+    <div class="box" style="padding: 0px">
+      <template for:each={children} for:item="child" lwc:if={children}>
+        <div
+          key={child.key}
+          style="
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out 0s;
+            display: flex;
+            justify-content: center;
+          "
+          data-key={child.key}
+          class={child.className}
+          ontouchstart={handleTouchStart}
+          ontouchend={handleTouchEnd}
+          onmousedown={handleDragStart}
+          onmouseup={handleDragEnd}
+        >
+          <div
+            class="card slds-text-body_small"
+            style="width: 140px; cursor: pointer"
+          >
+            <p>{child.FirstName}</p>
+            <p>{child.LastName}</p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</template>
