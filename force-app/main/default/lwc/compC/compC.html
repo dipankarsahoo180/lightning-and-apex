@@ -1,0 +1,14 @@
+<template>
+    <lightning-button 
+      variant="brand"
+      label="Toggle components" 
+      onclick={handleClick} 
+    ></lightning-button>
+
+    <p>It is outside the dynamic component</p>
+
+    <lwc:component lwc:is={compConstructor}>
+        <p  >It is inside the dynamic component</p>
+        <h1 slot="body" style="background-color: red;color:white;font-size:900">This goes inside slot body</h1>
+    </lwc:component>
+</template>
