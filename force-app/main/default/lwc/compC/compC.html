@@ -1,14 +1,57 @@
+<!--
+  @description       : 
+  @author            : Dipankar Sahoo
+  @group             : 
+  @last modified on  : 01-05-2024
+  @last modified by  : Dipankar Sahoo
+-->
 <template>
-    <lightning-button 
-      variant="brand"
-      label="Toggle components" 
-      onclick={handleClick} 
-    ></lightning-button>
+  <lightning-card variant="Narrow">
+    <div class="slds-p-around_large">
+      <lightning-input
+        type="text"
+        label="Enter Data A"
+        placeholder="type here..."
+        onkeyup={handleInputData1}
+      >
+      </lightning-input>
 
-    <p>It is outside the dynamic component</p>
+      <lightning-input
+        type="text"
+        label="Enter Data B"
+        placeholder="type here..."
+        onkeyup={handleInputData2}
+      >
+      </lightning-input>
 
-    <lwc:component lwc:is={compConstructor}>
-        <p  >It is inside the dynamic component</p>
-        <h1 slot="body" style="background-color: red;color:white;font-size:900">This goes inside slot body</h1>
-    </lwc:component>
+      <lightning-input
+        type="text"
+        label="Enter Data C"
+        placeholder="type here..."
+        onkeyup={handleInputData3}
+      >
+      </lightning-input>
+    </div>
+
+    <div class="slds-p-around_large">
+      <lightning-input
+        type="toggle"
+        label="Toggle Component"
+        onchange={handleToggle}
+      ></lightning-input>
+      <p class="slds-text-heading_large">
+        The component renders below dynamically
+      </p>
+
+      <lwc:component lwc:is={compConstructor} lwc:spread={childProps}>
+        <p>It is inside the dynamic component</p>
+        <h1
+          slot="body"
+          style="background-color: red; color: white; font-size: 900"
+        >
+          This goes inside slot body
+        </h1>
+      </lwc:component>
+    </div>
+  </lightning-card>
 </template>
