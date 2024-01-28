@@ -1,0 +1,108 @@
+<template>
+    <div class="swipe-container">
+      <div class="box" style="padding: 0px">
+        <div style="display: flex;justify-content: center;">
+          <div class="card slds-text-body_regular"
+            style="width: 140px;cursor: pointer;display: flex;justify-content: center;background-color: yellow;font-weight: 900;">
+              <p>ABSENT &nbsp;</p>
+          </div>
+
+          <div class="card slds-text-body_regular"
+            style="width: 140px;cursor: pointer;display: flex;justify-content: center;background-color: grey;color: white;font-weight: 900;">
+              <p>TARDY &nbsp;</p>
+          </div>
+
+          <div class="card slds-text-body_regular"
+            style="width: 140px;cursor: pointer;display: flex;justify-content: center;font-weight: 900;">
+              <p>DEFAULT &nbsp;</p>
+          </div>
+
+          <div class="card slds-text-body_regular"
+            style="width: 140px;cursor: pointer;display: flex;justify-content: center;background-color: green;color: white;font-weight: 900;">
+              <p>PRESENT &nbsp;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="swipe-container">
+      <div class="box" style="padding: 0px">
+        <template for:each={children} for:item="child" lwc:if={children}>
+          <div key={child.key} style="display: flex;justify-content: center;">
+            <div class="card slds-text-body_small"
+              style="width: 140px;cursor: pointer;display: flex;justify-content: center;"
+              draggable="true" 
+              data-key={child.key}
+              data-type="absent" 
+              data-course-id={child.courseId}
+              ontouchstart={handleTouchStart}
+              ontouchmove={handleTouchMove} 
+              ontouchend={handleTouchEnd}
+              ondragstart={handleDragStart}
+              ondragover={handleDragEnd}
+              ondrop={handleDrop}>
+              <div lwc:if={child.absent}>
+                <p>{child.FirstName}</p>
+                <p>{child.LastName}</p>
+              </div>
+            </div>
+
+            <div class="card slds-text-body_small"
+              style="width: 140px;cursor: pointer;display: flex;justify-content: center;"
+              draggable="true" 
+              data-key={child.key}
+              data-type="tardy" 
+              data-course-id={child.courseId}
+              ontouchstart={handleTouchStart}
+              ontouchmove={handleTouchMove} 
+              ontouchend={handleTouchEnd}
+              ondragstart={handleDragStart}
+              ondragover={handleDragEnd}
+              ondrop={handleDrop}>
+              <div lwc:if={child.tardy}>
+                <p>{child.FirstName}</p>
+                <p>{child.LastName}</p>
+              </div>
+            </div>
+            
+            <div class="card slds-text-body_small"
+              style="width: 140px;cursor: pointer;display: flex;justify-content: center;"
+              draggable="true" 
+              data-key={child.key} 
+              data-type="default"
+              data-course-id={child.courseId}
+              ontouchstart={handleTouchStart}
+              ontouchmove={handleTouchMove} 
+              ontouchend={handleTouchEnd}
+              ondragstart={handleDragStart}
+              ondragover={handleDragEnd}
+              ondrop={handleDrop}>
+              <div lwc:if={child.default}>
+                <p>{child.FirstName}</p>
+                <p>{child.LastName}</p>
+              </div>
+            </div>
+  
+            <div class="card slds-text-body_small"
+              style="width: 140px;cursor: pointer;display: flex;justify-content: center;"
+              draggable="true" 
+              data-key={child.key}
+              data-type="present" 
+              data-course-id={child.courseId}
+              ontouchstart={handleTouchStart}
+              ontouchmove={handleTouchMove} 
+              ontouchend={handleTouchEnd}
+              ondragstart={handleDragStart}
+              ondragover={handleDragEnd}
+              ondrop={handleDrop}>
+              <div lwc:if={child.present}>
+                <p>{child.FirstName}</p>
+                <p>{child.LastName}</p>
+              </div>
+            </div>
+            
+          </div>
+        </template>
+      </div>
+    </div>
+  </template>
