@@ -1,0 +1,20 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <input type="text"  onkeyup={handleSetName}>
+    
+    <lightning-button 
+      variant="base"
+      label="Button Label" 
+      onclick={handlegetAccountsFromApex} 
+    ></lightning-button>
+    
+    <template lwc:if={Accounts}>
+        <template for:each={Accounts} for:item="Account">
+            <div key={Account.Id}>
+                <p>{Account.Name}</p>
+                <p>{Account.Industry}</p>
+            </div>
+        </template>
+    </template>
+
+</template>
