@@ -1,0 +1,8 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+        <lightning-input type="text" variant="standard" name="name" label="label" placeholder="type here..."
+        onchange={handleChange}></lightning-input>
+        <p>{gqlData}</p>
+        <p>{gqlError}</p>
+    </lightning-card>
+</template>
