@@ -12,10 +12,10 @@
         </lightning-datatable>
         <div slot="footer">
             <div class="slds-grid slds-wrap">
-                <p class="slds-col slds-size_8-of-12 slds-var-m-vertical_medium" > showing {currentPageNumber} of {totalPageNumber}. Total {totalCount} records found</p>
-                <lightning-button class="slds-col slds-var-m-vertical_medium" variant="brand" label="Previous" onclick={handlePrevious} disabled={disablePreviousPage}></lightning-button>
-                <lightning-input class="slds-col slds-size_2-of-12" type="number" label="Records per Page" placeholder="Records per Page" onchange={jumpToPagehandler}></lightning-input>
-                <lightning-button class="slds-col slds-var-m-vertical_medium" variant="brand" label={nextLabel} onclick={handleNext} disabled={disableNextPage}></lightning-button>
+                <p class="slds-col slds-size_8-of-12 slds-var-m-top_large" > showing {currentPageNumber} of {totalPageNumber}. Total {totalCount} records found</p>
+                <lightning-button class="slds-col slds-var-m-top_large" variant="brand" label="Previous" onclick={handlePrevious} disabled={disablePreviousPage}></lightning-button>
+                <lightning-input class="slds-col slds-size_1-of-12" type="number" label="Records per Page" placeholder="Records per Page" onchange={recordsPerPageHandler} value="3"></lightning-input>
+                <lightning-button class="slds-col slds-var-m-top_large" variant="brand" label={nextLabel} onclick={handleNext} disabled={disableNextPage}></lightning-button>
             </div>
         </div>
     </lightning-card>

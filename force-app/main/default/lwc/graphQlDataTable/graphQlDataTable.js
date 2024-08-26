@@ -177,7 +177,7 @@ export default class GraphQlDataTable extends LightningElement {
         this.accountName = !!value? `${value}%` : null;
     }
 
-    jumpToPagehandler(e){
+    recordsPerPageHandler(e){
         if (e.target.value && parseInt(e.target.value)>=1){
             this.recordsPerPage = parseInt(e.target.value);
         }else{
