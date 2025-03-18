@@ -5,11 +5,11 @@ public without sharing class LiveAgentInteraction {
         HttpRequest request = new HttpRequest();
         
         // Set the endpoint URL for the Live Prompt API (check your org's settings)
-        String endpoint = 'https://orgfarm-cf6aee9e63-dev-ed.develop.my.salesforce.com/services/data/v63.0/einstein/prompt-templates/MarkDownTemplate/generations'; 
+        String endpoint = URL.getOrgDomainURL().toExternalForm()+'/services/data/v63.0/einstein/prompt-templates/MarkDownTemplate/generations'; 
         // Set the method and headers (assuming you’re sending a POST request)
         request.setEndpoint(endpoint);
         request.setMethod('POST');
-        request.setTimeout(120000); 
+        request.setTimeout(120000);
         request.setHeader('Authorization', 'Bearer ' + userInfo.getSessionId());
         request.setHeader('Content-Type', 'application/json');
         

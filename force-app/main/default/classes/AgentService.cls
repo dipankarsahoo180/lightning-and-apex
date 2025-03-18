@@ -9,14 +9,9 @@ global without sharing class AgentService {
             String accountId = acc[0].Id;
             return LiveAgentInteraction.getPromptResponse(accountId);
         }
-        	
         else{
-            return JSON.serialize(new Map<String, List<Map<String,String>>>{
-            'askAgentOutput' => new List<Map<String,String>>{
-                					new Map<String,String>{'content'=>'No account found in Salesforce for ' + accountName}
-            					}
-			});
-
+            return JSON.serialize(new Map<String, List<String>>{
+            'askAgentOutput' => new List<String>{'No account found in Salesforce for ' + accountName}});
         }
     }
 }
