@@ -1,0 +1,25 @@
+<!--
+  @description       : 
+  @author            : Dipankar Sahoo
+  @group             : 
+  @last modified on  : 06-14-2024
+  @last modified by  : Dipankar Sahoo
+-->
+<template>
+    <lightning-card>
+        <div slot="title">
+            Styles and Attributes
+        </div>
+        <div class="slds-var-p-around_medium">
+            <div class=" class-one class-two">
+                <h1 class="slds-text-heading_large slds-var-p-around_medium slds-var-m-vertical_medium">Hello World!!</h1>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <lightning-button class="slds-col" variant="brand" label="Style using attributes" title="change css"
+                    onclick={styleViaAttributes}></lightning-button>
+                <lightning-button class="slds-col" variant="brand" label="Style using class name" title="change css"
+                    onclick={styleViaClassName}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>
