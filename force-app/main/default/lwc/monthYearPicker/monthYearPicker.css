@@ -1,0 +1,101 @@
+:host {
+    --whiteColor: #ffffff;
+    --brandColor: #1b96ff;
+    --dullWhiteColor: #d8dde6;
+ }
+
+.container {
+    width: 220px;
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+}
+
+.date-input {
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--dullWhiteColor);
+    border-radius: 0.25rem;
+    background-color: var(--whiteColor);
+    cursor: pointer;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--brandColor);
+    box-shadow: 0 0 0 1px var(--brandColor);
+}
+
+.calendar-icon {
+    right: 8px;
+    top: 9px;
+    cursor: pointer;
+    --slds-c-icon-color-foreground-default: var(--brandColor);
+}
+
+.month-picker {
+    top: 90%;
+    left: 0;
+    background-color: var(--whiteColor);
+    border: 1px solid var(--dullWhiteColor);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.header {
+    background-color: var(--brandColor);
+    color: var(--whiteColor);
+    border-radius: 0.4rem 0.4rem 0 0;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.header button {
+    background: none;
+    border: none;
+    color: var(--whiteColor);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3x4 grid */
+    gap: 0.5rem;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+}
+
+.month {
+    background-color: var(--whiteColor);
+    padding: 0.5rem 0;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--brandColor);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.month:hover {
+    background-color:var(--brandColor);
+    color: var(--whiteColor);
+}
+
+.header button:disabled,
+.header button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--whiteColor);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.nav-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}

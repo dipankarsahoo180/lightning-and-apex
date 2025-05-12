@@ -1,0 +1,39 @@
+<template>
+    <div class="slds-is-relative container slds-var-p-around_small" onmouseleave={handleRemovePicker} >
+        <div> Month & Year <span class="slds-required" title="required">*</span></div>
+        
+        <div class="slds-is-relative input-wrapper" onclick={togglePicker}>
+            <input type="text" readonly class="slds-container_fluid date-input" value={formattedDate} required/>
+            <lightning-icon icon-name="utility:event" size="x-small"
+                class="slds-is-absolute calendar-icon"></lightning-icon>
+        </div>
+
+        <template if:true={showPicker}>
+            <div class="slds-box_x-small slds-container_fluid slds-is-absolute month-picker" onmouseleave={handleRemovePicker}>
+                <div class="slds-box_x-small slds-media_center slds-grid_align-spread slds-grid header">
+                    <lightning-button-icon icon-name="utility:left" variant="border-filled" onclick={prevYear}
+                        alternative-text="Previous Year" title="Previous Year"
+                        class={prevButtonClass}></lightning-button-icon>
+
+
+                    <span onclick={handleDisplayPicker}>{currentYear}</span>
+
+                    <lightning-button-icon icon-name="utility:right" variant="border-filled" onclick={nextYear}
+                        alternative-text="Next Year" title="Next Year"
+                        class={nextButtonClass}></lightning-button-icon>
+
+                </div>
+
+
+                <div class="months-grid">
+                    <template for:each={months} for:item="month">
+                        <div key={month.value} class="slds-text-align_center month" onclick={handleMonthClick}
+                            data-value={month.value}>
+                            {month.label}
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
