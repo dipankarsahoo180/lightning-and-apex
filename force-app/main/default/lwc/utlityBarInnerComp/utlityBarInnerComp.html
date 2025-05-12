@@ -1,0 +1,25 @@
+<!--
+  @description       : 
+  @author            : Dipankar Sahoo
+  @group             : 
+  @last modified on  : 06-13-2024
+  @last modified by  : Dipankar Sahoo
+-->
+<template>
+    <!-- Card Body  -->
+    <div lwc:if={utilityId} class="slds-var-p-around_medium">
+        <div class="slds-grid slds-wrap">
+          <lightning-button class="slds-col slds-var-m-around_medium" label="Toggle Popout" onclick={enablePopout}></lightning-button>
+          <lightning-button class="slds-col slds-var-m-around_medium" label="Toggle Modal" onclick={enableModal}></lightning-button>
+          <lightning-button class="slds-col slds-var-m-around_medium" label="Minimize" onclick={minimize}></lightning-button>
+          <lightning-button class="slds-col slds-var-m-around_medium" label="Open" onclick={open}></lightning-button>
+          <lightning-button class="slds-col slds-var-m-around_medium" label="Update Panel" onclick={updatePanel}></lightning-button>
+          <lightning-button class="slds-col slds-var-m-around_medium" label="Get All Utility Info"
+            onclick={getAllUtilityInfo}></lightning-button>
+          <lightning-button class="slds-col slds-var-m-around_medium" label="Get Info" onclick={getInfo}></lightning-button>
+          <lightning-button class="slds-col slds-var-m-around_medium" label="Update Utility" onclick={updateUtility}></lightning-button>
+        </div>
+        <lightning-textarea max-length="100000" name="" label="Utility Info" value={info} onchange={handleChange}
+          variant="standard"></lightning-textarea>
+      </div>
+</template>
