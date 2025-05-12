@@ -1,0 +1,34 @@
+<!--
+  @description       : 
+  @author            : Dipankar Sahoo
+  @group             : 
+  @last modified on  : 06-14-2024
+  @last modified by  : Dipankar Sahoo
+-->
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+      <div slot="title">
+          Card Title
+      </div>
+      <div slot="actions">
+    
+      </div>
+      <div slot="footer">
+    
+      </div>
+      <div>
+        <template lwc:if={data}>
+            <lightning-textarea 
+            class="slds-var-m-around_medium"
+              disabled
+              max-length="1000"
+              name="inputName" 
+              label="Current Page reference" 
+              value={data}
+              variant="standard"
+            ></lightning-textarea>
+        </template>
+        
+      </div>
+    </lightning-card>
+</template>
