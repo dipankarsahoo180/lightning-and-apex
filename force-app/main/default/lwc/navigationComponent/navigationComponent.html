@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Navigate Component">
+
+        <lightning-input
+            data-id="name"
+            label="Name"
+            type="text"
+            onchange={handleChange}
+            class="slds-m-around_small">
+        </lightning-input>
+
+        <lightning-input
+            data-id="email"
+            label="Email"
+            type="email"
+            onchange={handleChange}
+            class="slds-m-around_small">
+        </lightning-input>
+
+        <lightning-input
+            data-id="phone"
+            label="Phone"
+            type="phone"
+            onchange={handleChange}
+            class="slds-m-around_small">
+        </lightning-input>
+
+        <lightning-button 
+            label="Click to Navigate" 
+            title="Non-primary action" 
+            onclick={handleClick} 
+            class="slds-m-around_small">
+        </lightning-button>
+
+    </lightning-card>
+</template>
