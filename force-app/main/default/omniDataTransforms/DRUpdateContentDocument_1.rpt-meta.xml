@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;name&quot; : &quot;Special_CircumStances--Get_Started_With_Smallpdf.pdf&quot;,
+  &quot;contentVersionId&quot; : &quot;0687200000BtbxeAAB&quot;,
+  &quot;mimeType&quot; : &quot;application/pdf&quot;,
+  &quot;contentBodyId&quot; : &quot;05T7200000GNA41EAH&quot;,
+  &quot;documentId&quot; : &quot;0697200000BpPyIAAV&quot;
+}</expectedInputJson>
+    <fieldLevelSecurityEnabled>true</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>false</isManagedUsingStdDesigner>
+    <name>DRUpdateContentDocument</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>c7d9f6a7-92af-43d1-9b04-0742f86e620f</globalKey>
+        <inputFieldName>filename</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRUpdateContentDocument</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Title</outputFieldName>
+        <outputObjectName>ContentDocument</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>8b3b7461-b9aa-45a5-9107-a74482bd149a</globalKey>
+        <inputFieldName>documentId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRUpdateContentDocument</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Id</outputFieldName>
+        <outputObjectName>ContentDocument</outputObjectName>
+        <requiredForUpsert>true</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>true</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>true</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <globalKey>8d85c289-b7c2-420a-b6bf-9c8779823f40</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <migrationValue>FAKEMAPPING</migrationValue>
+        <name>DRUpdateContentDocument</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Id</outputFieldName>
+        <outputObjectName>ContentDocument</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>d70c3727-7c1f-4eec-9756-74a623f2a74a</globalKey>
+        <inputFieldName>data</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRUpdateContentDocument</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Id</outputFieldName>
+        <outputObjectName>ContentDocument</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>true</upsertKey>
+    </omniDataTransformItem>
+    <outputType>SObject</outputType>
+    <previewJsonData>{
+  &quot;name&quot; : &quot;Special CircumStances-Get_Started_With_Smallpdf.pdf&quot;,
+  &quot;contentVersionId&quot; : &quot;0687200000Btg6jAAB&quot;,
+  &quot;mimeType&quot; : &quot;application/pdf&quot;,
+  &quot;contentBodyId&quot; : &quot;05T7200000GNDZdEAP&quot;,
+  &quot;documentId&quot; : &quot;0697200000BpU7NAAV&quot;,
+  &quot;filename&quot; : &quot;Special CircumStances-Get_Started_With_Smallpdf.pdf&quot;
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Load</type>
+    <uniqueName>DRUpdateContentDocument_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedOutputJson>{
+  &quot;omniscriptId&quot; : &quot;0jN720000006B2PEAU&quot;,
+  &quot;language&quot; : &quot;English&quot;,
+  &quot;type&quot; : &quot;GlobalNXT&quot;,
+  &quot;subType&quot; : &quot;AdmissionsApplicationForm&quot;,
+  &quot;sId&quot; : &quot;0jN720000006B2PEAU&quot;,
+  &quot;runMode&quot; : &quot;preview&quot;,
+  &quot;theme&quot; : &quot;lightning&quot;,
+  &quot;ContextId&quot; : &quot;0iT720000000t1JEAQ&quot;,
+  &quot;LanguageCode&quot; : &quot;en_US&quot;,
+  &quot;userProfile&quot; : &quot;System Administrator&quot;,
+  &quot;timeStamp&quot; : &quot;2025-10-06T20:28:01.303Z&quot;,
+  &quot;userTimeZoneName&quot; : &quot;Asia/Kolkata&quot;,
+  &quot;userTimeZone&quot; : &quot;330&quot;,
+  &quot;userCurrencyCode&quot; : &quot;INR&quot;,
+  &quot;userName&quot; : &quot;reshna.premarajan-tklt@force.com.dev&quot;,
+  &quot;userId&quot; : &quot;005dN000007m6v7QAA&quot;,
+  &quot;omniProcessId&quot; : &quot;0jN720000006B2PEAU&quot;,
+  &quot;localTimeZoneName&quot; : &quot;Asia/Calcutta&quot;,
+  &quot;EmploymentHistoryStep&quot; : { },
+  &quot;accountId&quot; : &quot;0017200000dul4GAAQ&quot;,
+  &quot;programId&quot; : &quot;&quot;,
+  &quot;applicationId&quot; : &quot;0iT720000000t1JEAQ&quot;,
+  &quot;Category&quot; : &quot;&quot;,
+  &quot;step&quot; : &quot;&quot;,
+  &quot;ApplicationNumber&quot; : &quot;SB00C2500005&quot;,
+  &quot;PersonContactId&quot; : &quot;0037200000X4MesAAF&quot;,
+  &quot;ProgramTermApplnTimelineId&quot; : &quot;10L72000003xARREA2&quot;,
+  &quot;InstructionAndCategoryDetails&quot; : {
+    &quot;CategoryDetails&quot; : {
+      &quot;CreditTransfer&quot; : {
+        &quot;Selectyourpreferredcredittransferpathway&quot; : null,
+        &quot;Doyouwishtoapplyforacredittransfer&quot; : &quot;No&quot;
+      },
+      &quot;ProgramDetails&quot; : {
+        &quot;ModeofStudy&quot; : &quot;On-campus (Kuala Lumpur Malaysia)&quot;,
+        &quot;Programme&quot; : &quot;Master of Business Administration&quot;,
+        &quot;ProgramDetailsLevel&quot; : &quot;Masters&quot;,
+        &quot;Intake&quot; : &quot;APR&quot;
+      }
+    },
+    &quot;FRML_ShowEMploymentForm&quot; : true
+  },
+  &quot;EmergencyContactResult&quot; : {
+    &quot;error&quot; : &quot;OK&quot;,
+    &quot;errorCode&quot; : &quot;INVOKE-200&quot;,
+    &quot;SaveEmergencyContactResult&quot; : {
+      &quot;success&quot; : true,
+      &quot;message&quot; : &quot;Saved&quot;,
+      &quot;ContactId&quot; : &quot;0037200000XEfMrAAL&quot;
+    }
+  },
+  &quot;PersonalDetails&quot; : {
+    &quot;PermanentAddress&quot; : {
+      &quot;PermanentAddressCountry&quot; : &quot;India&quot;,
+      &quot;PermanentAddressState&quot; : &quot;Andaman and Nicobar Islands&quot;,
+      &quot;PermanentAddressDistrict&quot; : &quot;North and Middle Andaman&quot;,
+      &quot;PermanentAddressCity&quot; : &quot;asdasd&quot;,
+      &quot;PermanentAddressLine1&quot; : &quot;asdasdas&quot;,
+      &quot;PermanentAddressLine2&quot; : &quot;dsd&quot;,
+      &quot;PermanentAddressZipCode&quot; : &quot;789789&quot;
+    },
+    &quot;BirthDate&quot; : &quot;2000-09-03&quot;,
+    &quot;IdentificationDetails&quot; : {
+      &quot;DateOfExpiry&quot; : &quot;2025-10-01&quot;,
+      &quot;DateOfIssue&quot; : &quot;2025-10-01&quot;,
+      &quot;PlaceOfIssue&quot; : &quot;Delhi&quot;,
+      &quot;IdentificationNumber&quot; : &quot;123123&quot;
+    },
+    &quot;EmergencyContactDetails&quot; : {
+      &quot;EmergencyContactId&quot; : &quot;0037200000XEfMrAAL&quot;,
+      &quot;EmergencyContactAddressLine2&quot; : null,
+      &quot;EmergencyContactFirstName&quot; : &quot;DSFN&quot;,
+      &quot;EmergencyContactLastName&quot; : &quot;Test Update&quot;,
+      &quot;EmergencyContactMobileNumber&quot; : &quot;7898797989&quot;,
+      &quot;EmergencyContactEmailAddress&quot; : &quot;test@test.com1&quot;,
+      &quot;EmergencyContact_relationship_with_applicant&quot; : &quot;Mother&quot;,
+      &quot;EmergencyContactIdentificationType&quot; : &quot;NRIC&quot;,
+      &quot;EmergencyContactIdentificationNumber&quot; : 1236,
+      &quot;EmergencyContactAddressLine1&quot; : &quot;line 1234&quot;,
+      &quot;EmergencyContactCityTown&quot; : &quot;City Test&quot;,
+      &quot;EmergencyContactStateProvision&quot; : &quot;MA&quot;,
+      &quot;EmergencyContactPostalCode&quot; : &quot;560066&quot;,
+      &quot;EmergencyContactCountry&quot; : &quot;US&quot;
+    },
+    &quot;CurrentAddress&quot; : {
+      &quot;ParentLocName&quot; : &quot;Parent Address Line&quot;,
+      &quot;ParentLocId&quot; : &quot;13172000001wzvOAAQ&quot;,
+      &quot;ParentLocType&quot; : &quot;Other&quot;,
+      &quot;CurrentAddressId&quot; : &quot;13072000006Z6qIAAS&quot;,
+      &quot;CurrentAddressCityTown&quot; : &quot;Patna&quot;,
+      &quot;CurrentAddressCountry&quot; : &quot;India&quot;,
+      &quot;CurrentAddressStateProvince&quot; : &quot;Andaman and Nicobar Islands&quot;,
+      &quot;AddressLine1&quot; : &quot;Test 123123 Update 1&quot;,
+      &quot;PostalZipCode&quot; : &quot;560066&quot;,
+      &quot;AddressLine2&quot; : &quot;Test 123123 Update 2&quot;,
+      &quot;CurrentAddressDistrict&quot; : &quot;North and Middle Andaman&quot;
+    },
+    &quot;ApplicantName&quot; : &quot;JAMES Update CLARKE&quot;,
+    &quot;LastName&quot; : &quot;CLARKE&quot;,
+    &quot;AlternateMobileNumber&quot; : &quot;8908908900&quot;,
+    &quot;Race&quot; : &quot;Black&quot;,
+    &quot;AlternateEmailId&quot; : &quot;asdasd@asd.com&quot;,
+    &quot;Nationality&quot; : &quot;Albanian&quot;,
+    &quot;Salutation&quot; : &quot;Mr.&quot;,
+    &quot;Mobile&quot; : &quot;9777422964&quot;,
+    &quot;MiddleName&quot; : &quot;Update&quot;,
+    &quot;Gender&quot; : &quot;Male&quot;,
+    &quot;Religion&quot; : &quot;Hinduism&quot;,
+    &quot;FirstName&quot; : &quot;JAMES&quot;,
+    &quot;EmailId&quot; : &quot;dipankarsahoo180@gmail.com&quot;,
+    &quot;Same_as_the_above_address&quot; : &quot;No&quot;
+  },
+  &quot;AcademicHistory&quot; : {
+    &quot;EnglishQualificationDetails&quot; : null,
+    &quot;MembershipWithProfessionalBodies&quot; : {
+      &quot;CourseCompleted&quot; : false,
+      &quot;MembershipId&quot; : &quot;a0r7200000T1ozsAAB&quot;
+    },
+    &quot;QualificationDetails&quot; : {
+      &quot;AttendedFrom&quot; : &quot;2025-09-13&quot;,
+      &quot;LevelOfEducation&quot; : &quot;Diploma&quot;,
+      &quot;Grading_Score_Overall_CGPA&quot; : 8,
+      &quot;Max_Possible_CGPA_if_Applicable&quot; : 8,
+      &quot;CountryOfInstitution&quot; : &quot;India&quot;,
+      &quot;WasEnglishTheLanguageOfInstruction&quot; : &quot;false&quot;,
+      &quot;QualificationName&quot; : &quot;+2 Science&quot;,
+      &quot;NameOfTheInstitution&quot; : &quot;Test College&quot;
+    },
+    &quot;PersonEducationId&quot; : &quot;0Sr7200000007BBCAY&quot;
+  }
+}</expectedOutputJson>
+    <fieldLevelSecurityEnabled>true</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>false</isManagedUsingStdDesigner>
+    <name>DRExtractContentDocuments</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>954a4aab-0b62-4d51-8648-248749434657</globalKey>
+        <inputFieldName>files:ContentDocumentId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRExtractContentDocuments</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>data</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>8baa7366-433f-4d0d-9e69-397f3747a039</globalKey>
+        <inputFieldName>files:ContentDocument.LatestPublishedVersionId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRExtractContentDocuments</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>vId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <formulaConverted>var:ContentDocumentLink</formulaConverted>
+        <formulaExpression>%ContentDocumentLink%</formulaExpression>
+        <formulaResultPath>files</formulaResultPath>
+        <formulaSequence>1.0</formulaSequence>
+        <globalKey>615100fc-c79b-4dcd-b525-4de47b5afd0d</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRExtractContentDocuments</name>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>Formula</outputFieldName>
+        <outputObjectName>Formula</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>3240ebf4-1cad-41e9-95ff-956232c1f59e</globalKey>
+        <inputFieldName>files:ContentDocument.Title</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRExtractContentDocuments</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>filename</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <filterValue>applicationId</filterValue>
+        <globalKey>c87732b7-6f33-4176-8e4a-70ea360ad081</globalKey>
+        <inputFieldName>LinkedEntityId</inputFieldName>
+        <inputObjectName>ContentDocumentLink</inputObjectName>
+        <inputObjectQuerySequence>1.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRExtractContentDocuments</name>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>ContentDocumentLink</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>2ff53fc7-997d-420c-b7f3-bca668f8d59f</globalKey>
+        <inputFieldName>files:ContentDocument.ContentSize</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRExtractContentDocuments</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>size</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>INCLUDES</filterOperator>
+        <filterValue>&quot;SpecialCircumStanceFile-&quot;</filterValue>
+        <globalKey>703d76d7-5861-4855-9b0d-42a73914390d</globalKey>
+        <inputFieldName>Title</inputFieldName>
+        <inputObjectName>ContentDocumentLink</inputObjectName>
+        <inputObjectQuerySequence>1.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>DRExtractContentDocuments</name>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>ContentDocumentLink</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>JSON</outputType>
+    <previewJsonData>{
+  &quot;applicationId&quot; : &quot;0iT720000000vCnEAI&quot;
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Extract</type>
+    <uniqueName>DRExtractContentDocuments_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

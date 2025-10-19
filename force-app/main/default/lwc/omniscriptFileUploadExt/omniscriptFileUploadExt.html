@@ -1,0 +1,92 @@
+<template>
+  <!-- Spinner -->
+  <template if:true={isPageLoading}>
+    <omnistudio-spinner variant="brand"
+               alternative-text="Loading..."
+               theme={_theme}
+               size="medium">
+    </omnistudio-spinner>
+  </template>
+  <slot>
+    <div class={_containerClasses}
+         aria-labelledby="fileUpload">
+      <div class="slds-grid">
+        <label class="slds-form-element__label"
+               id="fileUpload">
+          <abbr if:true={_propSetMap.required}
+                class="slds-required"
+                title={allCustomLabelsUtil.OmniRequired}>*</abbr>
+          <span>{_propSetMap.label}</span>
+        </label>
+        <omnistudio-tooltip if:true={_propSetMap.help}
+                   class="slds-tooltip_container"
+                   content={_propSetMap.helpText}
+                   arrowposition={_propSetMap.helpTextPos}>
+        </omnistudio-tooltip>
+      </div>
+      <div class="slds-grid omni-file-input">
+        <!-- multiple attribute can be added if multiple upload is needed -->
+        <lightning-file-upload label=" "
+                               name={jsonDef.lwcId}
+                               onuploadfinished={handleUploadFinished}
+                               data-omni-input
+                               onfocusout={handleFocusOut}
+                               record-id={parentRecordId}
+                               aria-invalid={_showValidation}
+                               aria-describedby="file_upload_error_message"
+                               class="slds-has-dividers_around-space omni-file slds-m-bottom_xx-small slds-size_12-of-12 slds-medium-size_12-of-12"
+                               disabled={isUploadDisabled}
+                               aria-disabled={isUploadDisabled}>
+        </lightning-file-upload>
+      </div>
+      <span if:true={_showValidation}
+            id="file_upload_error_message"
+            aria-live="polite"
+            class="slds-form-element__help omni-file-required"
+            role="alert">
+        {errorMessage}
+      </span>
+    </div>
+  </slot>
+  <slot name="files">
+    <span id="upload-status"
+          class="slds-assistive-text" aria-hidden="true">{ariaLiveStatusText}</span>
+    <div aria-labelledby="upload-status" aria-live={ariaLiveStatus}>
+              <span if:true={isinvalidDoc} class="slds-form-element__help omni-file-required" style="color: red;"> {errorMessage} </span>
+    </div>
+    <div class="slds-grid">
+      <ul class="slds-has-dividers_around-space omni-file slds-m-bottom_xx-small slds-size_12-of-12 slds-medium-size_12-of-12">
+        <template for:each={_value}
+                  for:item="item"
+                  for:index="index">
+          <li key={item.data}
+              class="slds-item">
+            <div class="slds-grid">
+              <span class="slds-m-bottom_xx-small slds-size_11-of-12 slds-medium-size_11-of-12 slds-truncate">
+                {item.filename}
+              </span>
+              <span class="remove-file-icon slds-m-bottom_xx-small slds-size_1-of-12 slds-medium-size_1-of-12 slds-text-align_right">
+
+                <button class="slds-button slds-button_icon"
+                        title={item.deleteLabel}
+                        onclick={deleteFile}
+                        data-index={index}
+                        data-id={item.data}>
+                  <lightning-icon theme={_theme}
+                          extraclass="slds-button__icon"
+                          iconposition="left"
+                          icon-name="action:delete"
+                          color="brand"
+                          alternative-text={item.deleteLabel}
+                          size="x-small"
+                          data-index={index}
+                          data-id={item.data}></lightning-icon>
+                </button>
+              </span>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </slot>
+</template>
