@@ -8,5 +8,5 @@
   "name": "lwc-without-vlocity",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "54.0"
+  "sourceApiVersion": "66.0"
 }
