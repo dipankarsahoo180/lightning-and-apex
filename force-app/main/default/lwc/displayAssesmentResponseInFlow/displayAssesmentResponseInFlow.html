@@ -1,0 +1,17 @@
+<template>
+    <lightning-card variant="Narrow" title="Response">
+        <div class="slds-p-horizontal_small" if:true={response}>
+            <template for:each={response} for:item="step">
+                <div class="slds-p-horizontal_small slds-text-heading_large" key={step.label}>
+                    {step.label}
+                    <template for:each={step.value} for:item="detail">
+                        <div key={detail.unique_key}>
+                            <p class="slds-p-around_small slds-text-heading_medium">{detail.question}</p>
+                            <p class="slds-p-around_small slds-text-heading_small slds-text-color_weak">{detail.response}</p>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
