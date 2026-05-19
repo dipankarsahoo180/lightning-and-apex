@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>BXN7bZJpxmXkST+Hx+EvbBDFu1P01+HYGj81bza07Go=_7</activeVersionIdentifier>
+    <developerName>ExtractAcademicDetails</developerName>
+    <masterLabel>ExtractAcademicDetails</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are an expert academic transcript parser.
+
+INPUT
+- Transcript file Id: {!$Input:fileId}
+- Transcript File: {!$RecordSnapshot:File.snapshot}
+
+TASK
+- If Transcript File is not present but Transcript file Id is present then use the flow to find out the transcript file record and set Transcript File with the output from flow
+- Read the transcript file and extract these fields:
+  1) DegreeName (string)
+  2) DegreeType (string: such as Undergraduate, Graduate, Doctorate, Diploma, or equivalent found in transcript)
+  3) ScoreType (string: such as Marks, CGPA, GPA, Grade, Percentage, Graduate, Doctorate, or equivalent)
+  4) MarksObtained (number)
+  5) TotalMarks (number)
+  6) IsOCRSuccess (boolean)
+
+RULES
+- Return JSON only. No markdown, no backticks, no explanations.
+- Use null for any unavailable field when OCR succeeds but a value is missing.
+- If the transcript cannot be read, OCR fails, file is blank/corrupted, or text is not extractable:
+  - set IsOCRSuccess to false
+  - set DegreeName, DegreeType, ScoreType, MarksObtained, TotalMarks to null
+- If text is extracted, set IsOCRSuccess to true.
+- Ensure valid JSON with double quotes and no trailing commas.
+
+OUTPUT FORMAT (STRICT)
+{
+  &quot;DegreeName&quot;: &quot;JAKHSD&quot;,
+  &quot;DegreeType&quot;: &quot;Undergraduate&quot;,
+  &quot;ScoreType&quot;: &quot;Marks&quot;,
+  &quot;MarksObtained&quot;: 1075,
+  &quot;TotalMarks&quot;: 1200,
+  &quot;IsOCRSuccess&quot;: true
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>fileId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>fileId</masterLabel>
+            <referenceName>Input:fileId</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>File</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>File</masterLabel>
+            <referenceName>Input:File</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:File.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:File</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXN7bZJpxmXkST+Hx+EvbBDFu1P01+HYGj81bza07Go=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert academic transcript parser.
+
+INPUT
+- Transcript file Id: {!$Input:fileId}
+- Transcript File: {!$RecordSnapshot:File.snapshot}
+
+TASK
+- If Transcript File is not present but Transcript file Id is present then use the flow to find out the transcript file record and set Transcript File with the output from flow
+- Read the transcript file and extract these fields:
+  1) DegreeName (string)
+  2) DegreeType (string: such as Undergraduate, Graduate, Doctorate, Diploma, or equivalent found in transcript)
+  3) ScoreType (string: such as Marks, CGPA, GPA, Grade, Percentage, Graduate, Doctorate, or equivalent)
+  4) MarksObtained (number)
+  5) TotalMarks (number)
+  6) IsOCRSuccess (boolean)
+
+RULES
+- Return JSON only. No markdown, no backticks, no explanations.
+- Use null for any unavailable field when OCR succeeds but a value is missing.
+- If the transcript cannot be read, OCR fails, file is blank/corrupted, or text is not extractable:
+  - set IsOCRSuccess to false
+  - set DegreeName, DegreeType, ScoreType, MarksObtained, TotalMarks to null
+- If text is extracted, set IsOCRSuccess to true.
+- Ensure valid JSON with double quotes and no trailing commas.
+
+OUTPUT FORMAT (STRICT)
+{
+  &quot;DegreeName&quot;: &quot;JAKHSD&quot;,
+  &quot;DegreeType&quot;: &quot;Undergraduate&quot;,
+  &quot;ScoreType&quot;: &quot;Marks&quot;,
+  &quot;MarksObtained&quot;: 1075,
+  &quot;TotalMarks&quot;: 1200,
+  &quot;IsOCRSuccess&quot;: true
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>fileId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>fileId</masterLabel>
+            <referenceName>Input:fileId</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>File</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>File</masterLabel>
+            <referenceName>Input:File</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultVertexAIGemini25Flash001</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:File.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:File</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXN7bZJpxmXkST+Hx+EvbBDFu1P01+HYGj81bza07Go=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert academic transcript parser.
+
+INPUT
+- Transcript File: {!$RecordSnapshot:File.snapshot}
+
+TASK
+- Read the transcript file and extract these fields:
+  1) DegreeName (string)
+  2) DegreeType (string: such as Undergraduate, Graduate, Doctorate, Diploma, or equivalent found in transcript)
+  3) ScoreType (string: such as Marks, CGPA, GPA, Grade, Percentage, Graduate, Doctorate, or equivalent)
+  4) MarksObtained (number)
+  5) TotalMarks (number)
+  6) IsOCRSuccess (boolean)
+
+RULES
+- Return JSON only. No markdown, no backticks, no explanations.
+- Use null for any unavailable field when OCR succeeds but a value is missing.
+- If the transcript cannot be read, OCR fails, file is blank/corrupted, or text is not extractable:
+  - set IsOCRSuccess to false
+  - set DegreeName, DegreeType, ScoreType, MarksObtained, TotalMarks to null
+- If text is extracted, set IsOCRSuccess to true.
+- Ensure valid JSON with double quotes and no trailing commas.
+
+OUTPUT FORMAT (STRICT)
+{
+  &quot;DegreeName&quot;: &quot;JAKHSD&quot;,
+  &quot;DegreeType&quot;: &quot;Undergraduate&quot;,
+  &quot;ScoreType&quot;: &quot;Marks&quot;,
+  &quot;MarksObtained&quot;: 1075,
+  &quot;TotalMarks&quot;: 1200,
+  &quot;IsOCRSuccess&quot;: true
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>File</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>File</masterLabel>
+            <referenceName>Input:File</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>fileId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>fileId</masterLabel>
+            <referenceName>Input:fileId</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultVertexAIGemini25Flash001</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:File.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:File</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXN7bZJpxmXkST+Hx+EvbBDFu1P01+HYGj81bza07Go=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert academic transcript parser.
+
+INPUT
+- Transcript file Id: {!$Input:fileId}
+- Transcript File: {!$RecordSnapshot:File.snapshot}
+
+TASK
+- If Transcript File is not present but Transcript file Id is present then get Transcript file from {!$Flow:Get_File.Prompt} 
+- Read the transcript file and extract these fields:
+  1) DegreeName (string)
+  2) DegreeType (string: such as Undergraduate, Graduate, Doctorate, Diploma, or equivalent found in transcript)
+  3) ScoreType (string: such as Marks, CGPA, GPA, Grade, Percentage, Graduate, Doctorate, or equivalent)
+  4) MarksObtained (number)
+  5) TotalMarks (number)
+  6) IsOCRSuccess (boolean)
+
+RULES
+- Return JSON only. No markdown, no backticks, no explanations.
+- Use null for any unavailable field when OCR succeeds but a value is missing.
+- If the transcript cannot be read, OCR fails, file is blank/corrupted, or text is not extractable:
+  - set IsOCRSuccess to false
+  - set DegreeName, DegreeType, ScoreType, MarksObtained, TotalMarks to null
+- If text is extracted, set IsOCRSuccess to true.
+- Ensure valid JSON with double quotes and no trailing commas.
+
+OUTPUT FORMAT (STRICT)
+{
+  &quot;DegreeName&quot;: &quot;JAKHSD&quot;,
+  &quot;DegreeType&quot;: &quot;Undergraduate&quot;,
+  &quot;ScoreType&quot;: &quot;Marks&quot;,
+  &quot;MarksObtained&quot;: 1075,
+  &quot;TotalMarks&quot;: 1200,
+  &quot;IsOCRSuccess&quot;: true
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>File</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>File</masterLabel>
+            <referenceName>Input:File</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>fileId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>fileId</masterLabel>
+            <referenceName>Input:fileId</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultVertexAIGemini25Flash001</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:File.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:File</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_File</definition>
+            <label>Get File</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>fileId</parameterName>
+                <valueExpression>{!$Input:fileId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_File</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXN7bZJpxmXkST+Hx+EvbBDFu1P01+HYGj81bza07Go=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert academic transcript parser.
+
+INPUT
+- Transcript File: {!$RecordSnapshot:File.snapshot}
+
+TASK
+- Read the transcript file and extract these fields:
+  1) DegreeName (string)
+  2) DegreeType (string: such as Undergraduate, Graduate, Doctorate, Diploma, or equivalent found in transcript)
+  3) ScoreType (string: such as Marks, CGPA, GPA, Grade, Percentage, Graduate, Doctorate, or equivalent)
+  4) MarksObtained (number)
+  5) TotalMarks (number)
+  6) IsOCRSuccess (boolean)
+
+RULES
+- Return JSON only. No markdown, no backticks, no explanations.
+- Use null for any unavailable field when OCR succeeds but a value is missing.
+- If the transcript cannot be read, OCR fails, file is blank/corrupted, or text is not extractable:
+  - set IsOCRSuccess to false
+  - set DegreeName, DegreeType, ScoreType, MarksObtained, TotalMarks to null
+- If text is extracted, set IsOCRSuccess to true.
+- Ensure valid JSON with double quotes and no trailing commas.
+
+OUTPUT FORMAT (STRICT)
+{
+  &quot;DegreeName&quot;: &quot;JAKHSD&quot;,
+  &quot;DegreeType&quot;: &quot;Undergraduate&quot;,
+  &quot;ScoreType&quot;: &quot;Marks&quot;,
+  &quot;MarksObtained&quot;: 1075,
+  &quot;TotalMarks&quot;: 1200,
+  &quot;IsOCRSuccess&quot;: true
+}
+
+DO NOT GENERATE LIKE THIS
+```json { &quot;DegreeName&quot;: &quot;Bachelor of Science in Chemistry&quot;, &quot;DegreeType&quot;: &quot;Undergraduate&quot;, &quot;ScoreType&quot;: &quot;Marks&quot;, &quot;MarksObtained&quot;: 1337, &quot;TotalMarks&quot;: 2200, &quot;IsOCRSuccess&quot;: true } ```
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>fileId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>fileId</masterLabel>
+            <referenceName>Input:fileId</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>File</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>File</masterLabel>
+            <referenceName>Input:File</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultVertexAIGemini25Flash001</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:File.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:File</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXN7bZJpxmXkST+Hx+EvbBDFu1P01+HYGj81bza07Go=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert academic transcript parser.
+
+INPUT
+- Transcript File: {!$RecordSnapshot:File.snapshot}
+
+TASK
+- Read the transcript file and extract these fields:
+  1) DegreeName (string)
+  2) DegreeType (string: such as Undergraduate, Graduate, Doctorate, Diploma, or equivalent found in transcript)
+  3) ScoreType (string: such as Marks, CGPA, GPA, Grade, Percentage, Graduate, Doctorate, or equivalent)
+  4) MarksObtained (number)
+  5) TotalMarks (number)
+  6) IsOCRSuccess (boolean)
+
+RULES
+- Return JSON only. No markdown, no backticks, no explanations.
+- Use null for any unavailable field when OCR succeeds but a value is missing.
+- If the transcript cannot be read, OCR fails, file is blank/corrupted, or text is not extractable:
+  - set IsOCRSuccess to false
+  - set DegreeName, DegreeType, ScoreType, MarksObtained, TotalMarks to null
+- If text is extracted, set IsOCRSuccess to true.
+- Ensure valid JSON with double quotes and no trailing commas.
+
+OUTPUT FORMAT (STRICT)
+{
+
+  &quot;DegreeName&quot;: &quot;JAKHSD&quot;,
+   &quot;InstitutionName&quot;: &quot;JAKHSD&quot;,
+  &quot;DegreeType&quot;: &quot;Undergraduate&quot;,
+  &quot;ScoreType&quot;: &quot;Marks&quot;,
+  &quot;MarksObtained&quot;: 1075,
+  &quot;TotalMarks&quot;: 1200,
+  &quot;IsOCRSuccess&quot;: true
+}
+
+DO NOT GENERATE LIKE THIS
+```json { &quot;DegreeName&quot;: &quot;Bachelor of Science in Chemistry&quot;, &quot;DegreeType&quot;: &quot;Undergraduate&quot;, &quot;ScoreType&quot;: &quot;Marks&quot;, &quot;MarksObtained&quot;: 123, &quot;TotalMarks&quot;: 456, &quot;IsOCRSuccess&quot;: true } ```
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>File</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>File</masterLabel>
+            <referenceName>Input:File</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>fileId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>fileId</masterLabel>
+            <referenceName>Input:fileId</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultVertexAIGemini25Flash001</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:File.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:File</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXN7bZJpxmXkST+Hx+EvbBDFu1P01+HYGj81bza07Go=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert academic transcript parser.
+
+INPUT
+- Transcript File: {!$RecordSnapshot:File.snapshot}
+
+TASK
+- Read the transcript file and extract these fields:
+  1) DegreeName (string)
+  2) DegreeType (string: such as Undergraduate, Graduate, Doctorate, Diploma, or equivalent found in transcript)
+  3) ScoreType (string: such as Marks, CGPA, GPA, Grade, Percentage, Graduate, Doctorate, or equivalent)
+  4) MarksObtained (number)
+  5) TotalMarks (number)
+  6) IsOCRSuccess (boolean)
+
+RULES
+- Return JSON only. No markdown, no backticks, no explanations.
+- Use null for any unavailable field when OCR succeeds but a value is missing.
+- If the transcript cannot be read, OCR fails, file is blank/corrupted, or text is not extractable:
+  - set IsOCRSuccess to false
+  - set DegreeName, DegreeType, ScoreType, MarksObtained, TotalMarks to null
+- If text is extracted, set IsOCRSuccess to true.
+- Ensure valid JSON with double quotes and no trailing commas.
+
+OUTPUT FORMAT (STRICT)
+{
+
+  &quot;DegreeName&quot;: &quot;JAKHSD&quot;,
+   &quot;InstitutionName&quot;: &quot;JAKHSD&quot;,
+  &quot;DegreeType&quot;: &quot;Undergraduate&quot;,
+  &quot;ScoreType&quot;: &quot;Marks&quot;,
+  &quot;MarksObtained&quot;: 1075,
+  &quot;TotalMarks&quot;: 1200,
+  &quot;IsOCRSuccess&quot;: true
+}
+
+DO NOT GENERATE LIKE THIS
+```json { &quot;DegreeName&quot;: &quot;Bachelor of Science in Chemistry&quot;, &quot;DegreeType&quot;: &quot;Undergraduate&quot;, &quot;ScoreType&quot;: &quot;Marks&quot;, &quot;MarksObtained&quot;: 123, &quot;TotalMarks&quot;: 456, &quot;IsOCRSuccess&quot;: true } ```
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>fileId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>fileId</masterLabel>
+            <referenceName>Input:fileId</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>File</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>File</masterLabel>
+            <referenceName>Input:File</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultVertexAIGemini25Flash001</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <description>Retrieves record data for grounding a prompt template.</description>
+            <label>Record Snapshot</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:File.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:File</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXN7bZJpxmXkST+Hx+EvbBDFu1P01+HYGj81bza07Go=_7</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
